@@ -1,0 +1,823 @@
+{
+  "cloud_llm_providers": [
+    {
+      "provider": "OpenAI GPT-4.5 Turbo",
+      "model_name": "gpt-4.5-turbo",
+      "input_tokens_per_1k": 75.0,
+      "output_tokens_per_1k": 150.0,
+      "context_window": 200000,
+      "max_output_tokens": 32000,
+      "model_tier": "Premium",
+      "rate_limits": {
+        "rpm": 10000,
+        "tpm": 2000000,
+        "rps": 167
+      },
+      "features": [
+        "multimodal",
+        "reasoning",
+        "function_calling"
+      ]
+    },
+    {
+      "provider": "OpenAI GPT-4.1 Turbo",
+      "model_name": "gpt-4.1-turbo",
+      "input_tokens_per_1k": 8.0,
+      "output_tokens_per_1k": 24.0,
+      "context_window": 200000,
+      "max_output_tokens": 16000,
+      "model_tier": "Premium",
+      "rate_limits": {
+        "rpm": 10000,
+        "tpm": 2000000,
+        "rps": 167
+      },
+      "features": [
+        "multimodal",
+        "function_calling"
+      ]
+    },
+    {
+      "provider": "OpenAI GPT-4o",
+      "model_name": "gpt-4o",
+      "input_tokens_per_1k": 2.5,
+      "output_tokens_per_1k": 10.0,
+      "context_window": 128000,
+      "max_output_tokens": 16000,
+      "model_tier": "Standard",
+      "rate_limits": {
+        "rpm": 10000,
+        "tpm": 2000000,
+        "rps": 167
+      },
+      "features": [
+        "multimodal",
+        "function_calling"
+      ]
+    },
+    {
+      "provider": "OpenAI GPT-4o Mini",
+      "model_name": "gpt-4o-mini",
+      "input_tokens_per_1k": 0.15,
+      "output_tokens_per_1k": 0.6,
+      "context_window": 128000,
+      "max_output_tokens": 16000,
+      "model_tier": "Budget",
+      "rate_limits": {
+        "rpm": 10000,
+        "tpm": 2000000,
+        "rps": 167
+      },
+      "features": [
+        "function_calling"
+      ]
+    },
+    {
+      "provider": "Anthropic Claude Opus 4",
+      "model_name": "claude-opus-4",
+      "input_tokens_per_1k": 15.0,
+      "output_tokens_per_1k": 75.0,
+      "context_window": 200000,
+      "max_output_tokens": 8000,
+      "model_tier": "Premium",
+      "rate_limits": {
+        "rpm": 1000,
+        "tpm": 40000,
+        "rps": 17
+      },
+      "features": [
+        "multimodal",
+        "reasoning",
+        "function_calling"
+      ]
+    },
+    {
+      "provider": "Anthropic Claude Sonnet 4",
+      "model_name": "claude-sonnet-4",
+      "input_tokens_per_1k": 3.0,
+      "output_tokens_per_1k": 15.0,
+      "context_window": 200000,
+      "max_output_tokens": 8000,
+      "model_tier": "Standard",
+      "rate_limits": {
+        "rpm": 1000,
+        "tpm": 40000,
+        "rps": 17
+      },
+      "features": [
+        "multimodal",
+        "function_calling"
+      ]
+    },
+    {
+      "provider": "Google Gemini 2.5 Pro",
+      "model_name": "gemini-2.5-pro",
+      "input_tokens_per_1k": 2.5,
+      "output_tokens_per_1k": 15.0,
+      "context_window": 1000000,
+      "max_output_tokens": 65000,
+      "model_tier": "Premium",
+      "rate_limits": {
+        "rpm": 2000,
+        "tpm": 32000,
+        "rps": 33
+      },
+      "features": [
+        "multimodal",
+        "reasoning",
+        "function_calling"
+      ]
+    },
+    {
+      "provider": "Google Gemini 2.0 Flash",
+      "model_name": "gemini-2.0-flash",
+      "input_tokens_per_1k": 0.1,
+      "output_tokens_per_1k": 0.4,
+      "context_window": 1000000,
+      "max_output_tokens": 8000,
+      "model_tier": "Budget",
+      "rate_limits": {
+        "rpm": 15000,
+        "tpm": 1000000,
+        "rps": 250
+      },
+      "features": [
+        "multimodal",
+        "function_calling"
+      ]
+    },
+    {
+      "provider": "DeepSeek V3",
+      "model_name": "deepseek-v3",
+      "input_tokens_per_1k": 0.27,
+      "output_tokens_per_1k": 1.1,
+      "context_window": 64000,
+      "max_output_tokens": 8000,
+      "model_tier": "Budget",
+      "rate_limits": {
+        "rpm": 60,
+        "tpm": 200000,
+        "rps": 1
+      },
+      "features": [
+        "reasoning",
+        "function_calling"
+      ]
+    },
+    {
+      "provider": "Meta Llama 70B (via API)",
+      "model_name": "llama-3.3-70b",
+      "input_tokens_per_1k": 0.71,
+      "output_tokens_per_1k": 0.71,
+      "context_window": 200000,
+      "max_output_tokens": 8000,
+      "model_tier": "Open Source",
+      "rate_limits": {
+        "rpm": 30,
+        "tpm": 120000,
+        "rps": 0.5
+      },
+      "features": [
+        "function_calling"
+      ]
+    }
+  ],
+  "detailed_development_phases": [
+    {
+      "phase": "Problem Definition & Requirements Analysis",
+      "category": "Planning",
+      "base_cost_min": 5000,
+      "base_cost_max": 25000,
+      "complexity_multipliers": {
+        "simple": 1.0,
+        "medium": 1.5,
+        "complex": 2.5
+      },
+      "duration_weeks": {
+        "simple": 1,
+        "medium": 2,
+        "complex": 4
+      },
+      "activities": [
+        {
+          "name": "Business Case Development",
+          "cost_min": 2000,
+          "cost_max": 8000
+        },
+        {
+          "name": "Stakeholder Analysis",
+          "cost_min": 1500,
+          "cost_max": 5000
+        },
+        {
+          "name": "Requirements Gathering",
+          "cost_min": 3000,
+          "cost_max": 10000
+        },
+        {
+          "name": "Feasibility Study",
+          "cost_min": 2000,
+          "cost_max": 7000
+        },
+        {
+          "name": "Success Metrics Definition",
+          "cost_min": 1000,
+          "cost_max": 3000
+        }
+      ],
+      "team_roles": [
+        "Business Analyst",
+        "Project Manager",
+        "AI Consultant"
+      ],
+      "deliverables": [
+        "Requirements Document",
+        "Business Case",
+        "Project Charter"
+      ]
+    },
+    {
+      "phase": "Data Strategy & Architecture",
+      "category": "Data Management",
+      "base_cost_min": 15000,
+      "base_cost_max": 75000,
+      "complexity_multipliers": {
+        "simple": 1.0,
+        "medium": 2.0,
+        "complex": 3.5
+      },
+      "duration_weeks": {
+        "simple": 2,
+        "medium": 4,
+        "complex": 8
+      },
+      "activities": [
+        {
+          "name": "Data Audit & Assessment",
+          "cost_min": 3000,
+          "cost_max": 15000
+        },
+        {
+          "name": "Data Architecture Design",
+          "cost_min": 5000,
+          "cost_max": 20000
+        },
+        {
+          "name": "Data Governance Framework",
+          "cost_min": 4000,
+          "cost_max": 18000
+        },
+        {
+          "name": "Privacy & Compliance Setup",
+          "cost_min": 5000,
+          "cost_max": 25000
+        },
+        {
+          "name": "Data Pipeline Design",
+          "cost_min": 8000,
+          "cost_max": 30000
+        }
+      ],
+      "team_roles": [
+        "Data Architect",
+        "Data Engineer",
+        "Compliance Officer"
+      ],
+      "deliverables": [
+        "Data Architecture Document",
+        "Governance Framework",
+        "Compliance Report"
+      ]
+    },
+    {
+      "phase": "Data Collection & Acquisition",
+      "category": "Data Management",
+      "base_cost_min": 10000,
+      "base_cost_max": 150000,
+      "complexity_multipliers": {
+        "simple": 1.0,
+        "medium": 2.5,
+        "complex": 5.0
+      },
+      "duration_weeks": {
+        "simple": 3,
+        "medium": 6,
+        "complex": 12
+      },
+      "activities": [
+        {
+          "name": "Internal Data Extraction",
+          "cost_min": 2000,
+          "cost_max": 20000
+        },
+        {
+          "name": "External Data Procurement",
+          "cost_min": 5000,
+          "cost_max": 80000
+        },
+        {
+          "name": "Web Scraping & APIs",
+          "cost_min": 3000,
+          "cost_max": 25000
+        },
+        {
+          "name": "Synthetic Data Generation",
+          "cost_min": 4000,
+          "cost_max": 30000
+        },
+        {
+          "name": "Data Quality Assessment",
+          "cost_min": 2000,
+          "cost_max": 15000
+        }
+      ],
+      "team_roles": [
+        "Data Engineer",
+        "Data Scientist",
+        "External Data Vendors"
+      ],
+      "deliverables": [
+        "Raw Dataset",
+        "Data Quality Report",
+        "Data Documentation"
+      ]
+    },
+    {
+      "phase": "Data Processing & Preparation",
+      "category": "Data Management",
+      "base_cost_min": 20000,
+      "base_cost_max": 200000,
+      "complexity_multipliers": {
+        "simple": 1.0,
+        "medium": 2.0,
+        "complex": 4.0
+      },
+      "duration_weeks": {
+        "simple": 4,
+        "medium": 8,
+        "complex": 16
+      },
+      "activities": [
+        {
+          "name": "Data Cleaning & Validation",
+          "cost_min": 5000,
+          "cost_max": 40000
+        },
+        {
+          "name": "Data Transformation",
+          "cost_min": 4000,
+          "cost_max": 35000
+        },
+        {
+          "name": "Feature Engineering",
+          "cost_min": 8000,
+          "cost_max": 60000
+        },
+        {
+          "name": "Data Labeling",
+          "cost_min": 10000,
+          "cost_max": 100000
+        },
+        {
+          "name": "Data Augmentation",
+          "cost_min": 3000,
+          "cost_max": 25000
+        }
+      ],
+      "team_roles": [
+        "Data Engineer",
+        "Data Scientist",
+        "ML Engineer",
+        "Annotation Team"
+      ],
+      "deliverables": [
+        "Processed Dataset",
+        "Feature Dictionary",
+        "Data Pipeline"
+      ]
+    },
+    {
+      "phase": "Model Development & Training",
+      "category": "Model Development",
+      "base_cost_min": 30000,
+      "base_cost_max": 300000,
+      "complexity_multipliers": {
+        "simple": 1.0,
+        "medium": 2.5,
+        "complex": 5.0
+      },
+      "duration_weeks": {
+        "simple": 4,
+        "medium": 10,
+        "complex": 20
+      },
+      "activities": [
+        {
+          "name": "Algorithm Selection",
+          "cost_min": 3000,
+          "cost_max": 20000
+        },
+        {
+          "name": "Model Architecture Design",
+          "cost_min": 8000,
+          "cost_max": 60000
+        },
+        {
+          "name": "Hyperparameter Tuning",
+          "cost_min": 5000,
+          "cost_max": 40000
+        },
+        {
+          "name": "Model Training",
+          "cost_min": 10000,
+          "cost_max": 120000
+        },
+        {
+          "name": "Experimentation & Iteration",
+          "cost_min": 8000,
+          "cost_max": 80000
+        }
+      ],
+      "team_roles": [
+        "ML Engineer",
+        "Data Scientist",
+        "AI Researcher"
+      ],
+      "deliverables": [
+        "Trained Models",
+        "Experiment Logs",
+        "Model Documentation"
+      ]
+    },
+    {
+      "phase": "Model Validation & Testing",
+      "category": "Quality Assurance",
+      "base_cost_min": 15000,
+      "base_cost_max": 120000,
+      "complexity_multipliers": {
+        "simple": 1.0,
+        "medium": 2.0,
+        "complex": 3.0
+      },
+      "duration_weeks": {
+        "simple": 3,
+        "medium": 6,
+        "complex": 10
+      },
+      "activities": [
+        {
+          "name": "Performance Evaluation",
+          "cost_min": 3000,
+          "cost_max": 25000
+        },
+        {
+          "name": "Bias & Fairness Testing",
+          "cost_min": 4000,
+          "cost_max": 30000
+        },
+        {
+          "name": "Robustness Testing",
+          "cost_min": 3000,
+          "cost_max": 20000
+        },
+        {
+          "name": "A/B Testing Setup",
+          "cost_min": 5000,
+          "cost_max": 35000
+        },
+        {
+          "name": "Regulatory Compliance Testing",
+          "cost_min": 4000,
+          "cost_max": 25000
+        }
+      ],
+      "team_roles": [
+        "ML Engineer",
+        "QA Engineer",
+        "Data Scientist"
+      ],
+      "deliverables": [
+        "Validation Report",
+        "Test Results",
+        "Compliance Certificate"
+      ]
+    },
+    {
+      "phase": "Infrastructure & Platform Setup",
+      "category": "Infrastructure",
+      "base_cost_min": 25000,
+      "base_cost_max": 200000,
+      "complexity_multipliers": {
+        "simple": 1.0,
+        "medium": 2.0,
+        "complex": 4.0
+      },
+      "duration_weeks": {
+        "simple": 3,
+        "medium": 6,
+        "complex": 12
+      },
+      "activities": [
+        {
+          "name": "Cloud Infrastructure Setup",
+          "cost_min": 8000,
+          "cost_max": 50000
+        },
+        {
+          "name": "MLOps Pipeline Development",
+          "cost_min": 10000,
+          "cost_max": 80000
+        },
+        {
+          "name": "Monitoring & Logging Setup",
+          "cost_min": 5000,
+          "cost_max": 30000
+        },
+        {
+          "name": "Security Implementation",
+          "cost_min": 7000,
+          "cost_max": 45000
+        },
+        {
+          "name": "Scalability Architecture",
+          "cost_min": 8000,
+          "cost_max": 40000
+        }
+      ],
+      "team_roles": [
+        "DevOps Engineer",
+        "Cloud Architect",
+        "Security Engineer"
+      ],
+      "deliverables": [
+        "Infrastructure Documentation",
+        "MLOps Pipeline",
+        "Security Framework"
+      ]
+    },
+    {
+      "phase": "Application Development & Integration",
+      "category": "Development",
+      "base_cost_min": 35000,
+      "base_cost_max": 250000,
+      "complexity_multipliers": {
+        "simple": 1.0,
+        "medium": 2.0,
+        "complex": 3.5
+      },
+      "duration_weeks": {
+        "simple": 6,
+        "medium": 12,
+        "complex": 20
+      },
+      "activities": [
+        {
+          "name": "API Development",
+          "cost_min": 8000,
+          "cost_max": 50000
+        },
+        {
+          "name": "User Interface Development",
+          "cost_min": 10000,
+          "cost_max": 80000
+        },
+        {
+          "name": "System Integration",
+          "cost_min": 12000,
+          "cost_max": 70000
+        },
+        {
+          "name": "Database Integration",
+          "cost_min": 5000,
+          "cost_max": 30000
+        },
+        {
+          "name": "Third-party Integrations",
+          "cost_min": 8000,
+          "cost_max": 45000
+        }
+      ],
+      "team_roles": [
+        "Full-stack Developer",
+        "Backend Developer",
+        "Frontend Developer",
+        "Integration Specialist"
+      ],
+      "deliverables": [
+        "Application Code",
+        "API Documentation",
+        "Integration Guides"
+      ]
+    },
+    {
+      "phase": "Deployment & Production Launch",
+      "category": "Deployment",
+      "base_cost_min": 20000,
+      "base_cost_max": 100000,
+      "complexity_multipliers": {
+        "simple": 1.0,
+        "medium": 1.5,
+        "complex": 2.5
+      },
+      "duration_weeks": {
+        "simple": 2,
+        "medium": 4,
+        "complex": 8
+      },
+      "activities": [
+        {
+          "name": "Production Environment Setup",
+          "cost_min": 5000,
+          "cost_max": 25000
+        },
+        {
+          "name": "Deployment Automation",
+          "cost_min": 4000,
+          "cost_max": 20000
+        },
+        {
+          "name": "Load Testing",
+          "cost_min": 3000,
+          "cost_max": 15000
+        },
+        {
+          "name": "User Training",
+          "cost_min": 5000,
+          "cost_max": 25000
+        },
+        {
+          "name": "Go-Live Support",
+          "cost_min": 3000,
+          "cost_max": 15000
+        }
+      ],
+      "team_roles": [
+        "DevOps Engineer",
+        "Support Team",
+        "Training Specialist"
+      ],
+      "deliverables": [
+        "Production System",
+        "Deployment Guide",
+        "User Documentation"
+      ]
+    },
+    {
+      "phase": "Monitoring & Maintenance",
+      "category": "Operations",
+      "base_cost_min": 15000,
+      "base_cost_max": 80000,
+      "complexity_multipliers": {
+        "simple": 1.0,
+        "medium": 1.8,
+        "complex": 3.0
+      },
+      "duration_weeks": {
+        "ongoing": "continuous"
+      },
+      "activities": [
+        {
+          "name": "Performance Monitoring",
+          "cost_min": 3000,
+          "cost_max": 20000
+        },
+        {
+          "name": "Model Drift Detection",
+          "cost_min": 4000,
+          "cost_max": 25000
+        },
+        {
+          "name": "Regular Updates",
+          "cost_min": 5000,
+          "cost_max": 30000
+        },
+        {
+          "name": "Bug Fixes & Support",
+          "cost_min": 3000,
+          "cost_max": 15000
+        },
+        {
+          "name": "Continuous Improvement",
+          "cost_min": 4000,
+          "cost_max": 20000
+        }
+      ],
+      "team_roles": [
+        "Support Engineer",
+        "ML Engineer",
+        "Data Scientist"
+      ],
+      "deliverables": [
+        "Monitoring Dashboard",
+        "Maintenance Reports",
+        "Update Logs"
+      ]
+    }
+  ],
+  "usage_calculation_types": [
+    {
+      "type": "tokens_per_request",
+      "name": "Tokens per Request",
+      "description": "Calculate based on average tokens consumed per API request",
+      "fields": [
+        "avg_input_tokens",
+        "avg_output_tokens",
+        "requests_per_day"
+      ],
+      "formula": "daily_cost = (avg_input_tokens * input_price + avg_output_tokens * output_price) * requests_per_day / 1000"
+    },
+    {
+      "type": "requests_per_minute",
+      "name": "Requests per Minute (RPM)",
+      "description": "Calculate based on requests per minute with token estimates",
+      "fields": [
+        "rpm",
+        "avg_input_tokens",
+        "avg_output_tokens"
+      ],
+      "formula": "daily_cost = rpm * 60 * 24 * (avg_input_tokens * input_price + avg_output_tokens * output_price) / 1000"
+    },
+    {
+      "type": "requests_per_second",
+      "name": "Requests per Second (RPS)",
+      "description": "Calculate based on requests per second with token estimates",
+      "fields": [
+        "rps",
+        "avg_input_tokens",
+        "avg_output_tokens"
+      ],
+      "formula": "daily_cost = rps * 86400 * (avg_input_tokens * input_price + avg_output_tokens * output_price) / 1000"
+    },
+    {
+      "type": "tokens_per_day",
+      "name": "Total Tokens per Day",
+      "description": "Calculate based on total daily token consumption",
+      "fields": [
+        "input_tokens_per_day",
+        "output_tokens_per_day"
+      ],
+      "formula": "daily_cost = (input_tokens_per_day * input_price + output_tokens_per_day * output_price) / 1000"
+    },
+    {
+      "type": "business_metrics",
+      "name": "Business Metrics",
+      "description": "Calculate based on business-specific metrics",
+      "fields": [
+        "users_per_day",
+        "interactions_per_user",
+        "avg_input_tokens",
+        "avg_output_tokens"
+      ],
+      "formula": "daily_cost = users_per_day * interactions_per_user * (avg_input_tokens * input_price + avg_output_tokens * output_price) / 1000"
+    }
+  ],
+  "token_estimation_guidelines": {
+    "content_types": [
+      {
+        "type": "Short Query",
+        "avg_input_tokens": 25,
+        "avg_output_tokens": 100,
+        "example": "Simple question answering"
+      },
+      {
+        "type": "Chat Message",
+        "avg_input_tokens": 50,
+        "avg_output_tokens": 150,
+        "example": "Conversational responses"
+      },
+      {
+        "type": "Document Summary",
+        "avg_input_tokens": 2000,
+        "avg_output_tokens": 300,
+        "example": "Summarizing long documents"
+      },
+      {
+        "type": "Code Generation",
+        "avg_input_tokens": 100,
+        "avg_output_tokens": 400,
+        "example": "Writing code snippets"
+      },
+      {
+        "type": "Creative Writing",
+        "avg_input_tokens": 80,
+        "avg_output_tokens": 600,
+        "example": "Blog posts, stories"
+      },
+      {
+        "type": "Analysis Report",
+        "avg_input_tokens": 1500,
+        "avg_output_tokens": 800,
+        "example": "Data analysis, research"
+      }
+    ],
+    "language_multipliers": {
+      "english": 1.0,
+      "spanish": 1.2,
+      "french": 1.2,
+      "german": 1.3,
+      "chinese": 1.5,
+      "japanese": 2.0,
+      "arabic": 1.4
+    }
+  }
+}

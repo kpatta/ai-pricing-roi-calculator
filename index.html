@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Pricing Calculator - Advanced Cost Analysis Tool</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1>AI Pricing Calculator</h1>
+            <p>Advanced cost analysis tool for AI application development and deployment</p>
+        </div>
+    </header>
+
+    <nav class="tab-navigation">
+        <div class="container">
+            <div class="tab-buttons">
+                <button class="tab-btn active" data-tab="overview">Overview</button>
+                <button class="tab-btn" data-tab="llm-config">LLM Configuration</button>
+                <button class="tab-btn" data-tab="usage-calculator">Usage Calculator</button>
+                <button class="tab-btn" data-tab="development-planner">Development Planner</button>
+                <button class="tab-btn" data-tab="infrastructure">Infrastructure</button>
+                <button class="tab-btn" data-tab="pricing-strategy">Pricing Strategy</button>
+                <button class="tab-btn" data-tab="roi-calculator">ROI Calculator</button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <div class="container">
+            <!-- Overview Tab -->
+            <div id="overview" class="tab-content active">
+                <div class="overview-header">
+                    <h2>Welcome to the Advanced AI Pricing Calculator</h2>
+                    <p>Make informed decisions about your AI application development and deployment costs with our comprehensive analysis tool.</p>
+                </div>
+
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <h3>🔧 LLM Configuration</h3>
+                        <p>Manage and configure LLM providers with custom pricing, rate limits, and feature settings. Import/export configurations for team collaboration.</p>
+                        <button class="btn btn--primary" onclick="switchTab('llm-config')">Configure Models</button>
+                    </div>
+
+                    <div class="feature-card">
+                        <h3>📊 Usage Calculator</h3>
+                        <p>Calculate costs using multiple methods: RPM, RPS, tokens per request, daily tokens, and business metrics with real-time validation.</p>
+                        <button class="btn btn--primary" onclick="switchTab('usage-calculator')">Calculate Usage</button>
+                    </div>
+
+                    <div class="feature-card">
+                        <h3>🏗️ Development Planner</h3>
+                        <p>Comprehensive project planning with 10 detailed phases, sub-activities, team roles, and timeline visualization.</p>
+                        <button class="btn btn--primary" onclick="switchTab('development-planner')">Plan Project</button>
+                    </div>
+
+                    <div class="feature-card">
+                        <h3>🖥️ Infrastructure Analysis</h3>
+                        <p>Compare cloud GPU costs vs. self-hosting with comprehensive 3-year TCO analysis and break-even calculations.</p>
+                        <button class="btn btn--primary" onclick="switchTab('infrastructure')">Analyze Infrastructure</button>
+                    </div>
+
+                    <div class="feature-card">
+                        <h3>💰 Pricing Strategy</h3>
+                        <p>Simple pricing model selection and basic revenue calculation to determine the best pricing approach for your application.</p>
+                        <button class="btn btn--primary" onclick="switchTab('pricing-strategy')">Design Strategy</button>
+                    </div>
+
+                    <div class="feature-card">
+                        <h3>📈 ROI Calculator</h3>
+                        <p>Basic return on investment calculation and break-even analysis for your AI application business case.</p>
+                        <button class="btn btn--primary" onclick="switchTab('roi-calculator')">Calculate ROI</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- LLM Configuration Tab -->
+            <div id="llm-config" class="tab-content">
+                <div class="config-header">
+                    <h2>LLM Provider Configuration</h2>
+                    <div class="config-actions">
+                        <button class="btn btn--secondary" onclick="importConfig()">Import JSON</button>
+                        <button class="btn btn--secondary" onclick="exportConfig()">Export Config</button>
+                        <button class="btn btn--primary" onclick="addNewProvider()">Add Provider</button>
+                    </div>
+                </div>
+
+                <div class="provider-management">
+                    <div class="provider-list">
+                        <h3>Configured Providers</h3>
+                        <div id="provider-list-container" class="provider-cards">
+                            <!-- Populated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Provider Edit Modal -->
+                <div id="provider-modal" class="modal hidden">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h3 id="modal-title">Add LLM Provider</h3>
+                            <button class="modal-close" onclick="closeProviderModal()">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="provider-form">
+                                <div class="input-grid">
+                                    <div class="form-group">
+                                        <label class="form-label">Provider Name</label>
+                                        <input type="text" id="provider-name" class="form-control" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">Model Name</label>
+                                        <input type="text" id="model-name" class="form-control" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">Input Tokens per 1K ($)</label>
+                                        <input type="number" id="input-price" class="form-control" step="0.001" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">Output Tokens per 1K ($)</label>
+                                        <input type="number" id="output-price" class="form-control" step="0.001" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">Context Window</label>
+                                        <input type="number" id="context-window" class="form-control" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">Max Output Tokens</label>
+                                        <input type="number" id="max-output" class="form-control" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">Model Tier</label>
+                                        <select id="model-tier" class="form-control">
+                                            <option value="Budget">Budget</option>
+                                            <option value="Standard">Standard</option>
+                                            <option value="Premium">Premium</option>
+                                            <option value="Enterprise">Enterprise</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">RPM Limit</label>
+                                        <input type="number" id="rpm-limit" class="form-control" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">TPM Limit</label>
+                                        <input type="number" id="tpm-limit" class="form-control" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">RPS Limit</label>
+                                        <input type="number" id="rps-limit" class="form-control" step="0.1" required>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label class="form-label">Features</label>
+                                    <div class="feature-checkboxes">
+                                        <label><input type="checkbox" value="multimodal"> Multimodal</label>
+                                        <label><input type="checkbox" value="reasoning"> Reasoning</label>
+                                        <label><input type="checkbox" value="function_calling"> Function Calling</label>
+                                    </div>
+                                </div>
+                                
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn--secondary" onclick="closeProviderModal()">Cancel</button>
+                                    <button type="submit" class="btn btn--primary">Save Provider</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Usage Calculator Tab -->
+            <div id="usage-calculator" class="tab-content">
+                <h2>Advanced Usage Calculator</h2>
+                
+                <div class="calculator-selector">
+                    <h3>Select Calculation Method</h3>
+                    <div class="calculation-methods">
+                        <button class="method-btn active" data-method="tokens_per_request">Tokens per Request</button>
+                        <button class="method-btn" data-method="requests_per_minute">Requests per Minute</button>
+                        <button class="method-btn" data-method="requests_per_second">Requests per Second</button>
+                        <button class="method-btn" data-method="tokens_per_day">Tokens per Day</button>
+                        <button class="method-btn" data-method="business_metrics">Business Metrics</button>
+                    </div>
+                </div>
+
+                <div class="usage-configuration">
+                    <div class="config-section">
+                        <div class="form-group">
+                            <label class="form-label">Select LLM Provider</label>
+                            <select id="usage-provider" class="form-control">
+                                <!-- Populated by JavaScript -->
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Calculation inputs will be populated based on selected method -->
+                    <div id="calculation-inputs" class="calculation-inputs">
+                        <!-- Populated by JavaScript -->
+                    </div>
+                </div>
+
+                <div class="usage-results">
+                    <div class="results-summary">
+                        <h3>Cost Analysis</h3>
+                        <div id="cost-breakdown" class="cost-grid">
+                            <!-- Populated by JavaScript -->
+                        </div>
+                    </div>
+                    
+                    <div class="validation-alerts">
+                        <h3>Validation & Recommendations</h3>
+                        <div id="validation-messages" class="alerts-container">
+                            <!-- Populated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="usage-visualization">
+                    <div class="chart-container" style="position: relative; height: 400px;">
+                        <canvas id="usage-chart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Development Planner Tab -->
+            <div id="development-planner" class="tab-content">
+                <h2>AI Development Project Planner</h2>
+                
+                <div class="project-configuration">
+                    <div class="input-grid">
+                        <div class="form-group">
+                            <label class="form-label">Project Type</label>
+                            <select id="project-type" class="form-control">
+                                <option value="chatbot">Chatbot Development</option>
+                                <option value="document-processing">Document Processing System</option>
+                                <option value="predictive-analytics">Predictive Analytics Platform</option>
+                                <option value="computer-vision">Computer Vision Application</option>
+                                <option value="recommendation-engine">Recommendation Engine</option>
+                                <option value="custom">Custom AI Application</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Project Complexity</label>
+                            <select id="project-complexity" class="form-control">
+                                <option value="simple">Simple - Basic integration (1x multiplier)</option>
+                                <option value="medium">Medium - Custom training (1.5-2x multiplier)</option>
+                                <option value="complex">Complex - Full platform (2.5-5x multiplier)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Team Type</label>
+                            <select id="team-type" class="form-control">
+                                <option value="in-house">In-house Team</option>
+                                <option value="mixed">Mixed (In-house + Contractors)</option>
+                                <option value="outsourced">Fully Outsourced</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="development-phases-detailed">
+                    <h3>Development Phases</h3>
+                    <div id="phases-container" class="phases-list">
+                        <!-- Populated by JavaScript -->
+                    </div>
+                </div>
+
+                <div class="project-summary">
+                    <div class="summary-grid">
+                        <div class="summary-card">
+                            <h4>Cost Estimation</h4>
+                            <div id="project-costs" class="cost-details">
+                                <!-- Populated by JavaScript -->
+                            </div>
+                        </div>
+                        <div class="summary-card">
+                            <h4>Timeline Estimation</h4>
+                            <div id="project-timeline" class="timeline-details">
+                                <!-- Populated by JavaScript -->
+                            </div>
+                        </div>
+                        <div class="summary-card">
+                            <h4>Team Requirements</h4>
+                            <div id="team-requirements" class="team-details">
+                                <!-- Populated by JavaScript -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-visualization">
+                    <div class="chart-container" style="position: relative; height: 400px;">
+                        <canvas id="project-chart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Infrastructure Tab -->
+            <div id="infrastructure" class="tab-content">
+                <h2>Infrastructure Cost Calculator</h2>
+                
+                <div class="infrastructure-toggle">
+                    <div class="toggle-buttons">
+                        <button class="toggle-btn active" data-mode="cloud">Cloud GPU</button>
+                        <button class="toggle-btn" data-mode="self-hosting">Self-Hosting</button>
+                    </div>
+                </div>
+
+                <div id="cloud-section" class="infrastructure-section">
+                    <h3>Cloud GPU Configuration</h3>
+                    <div class="input-grid">
+                        <div class="form-group">
+                            <label class="form-label">GPU Provider</label>
+                            <select id="gpu-provider" class="form-control">
+                                <!-- Populated by JavaScript -->
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Estimated Monthly Hours</label>
+                            <input type="number" id="gpu-hours" class="form-control" value="720" min="0">
+                        </div>
+                    </div>
+                    
+                    <div class="cost-summary">
+                        <h4>Monthly Cost Summary</h4>
+                        <div id="cloud-cost-summary" class="cost-breakdown">
+                            <!-- Populated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+
+                <div id="self-hosting-section" class="infrastructure-section hidden">
+                    <h3>Self-Hosting Cost Analysis</h3>
+                    <div class="input-grid">
+                        <div class="form-group">
+                            <label class="form-label">GPU Type</label>
+                            <select id="self-hosting-gpu" class="form-control">
+                                <option value="h100">H100 80GB ($25,000)</option>
+                                <option value="a100">A100 40GB ($12,000)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Number of GPUs</label>
+                            <input type="number" id="gpu-quantity" class="form-control" value="1" min="1" max="8">
+                        </div>
+                    </div>
+
+                    <div class="tco-analysis">
+                        <h4>3-Year Total Cost of Ownership</h4>
+                        <div id="tco-breakdown" class="cost-breakdown">
+                            <!-- Populated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pricing Strategy Tab (Simplified) -->
+            <div id="pricing-strategy" class="tab-content">
+                <h2>Pricing Strategy</h2>
+                
+                <div class="pricing-inputs input-section">
+                    <h3>Select Pricing Model</h3>
+                    <div class="form-group">
+                        <label class="form-label">Pricing Model</label>
+                        <select id="pricing-model-select" class="form-control">
+                            <option value="">Select a pricing model...</option>
+                            <option value="0">Usage-Based (Token)</option>
+                            <option value="1">Subscription</option>
+                            <option value="2">Value-Based</option>
+                            <option value="3">Hybrid</option>
+                            <option value="4">Credit-Based</option>
+                            <option value="5">Freemium</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="pricing-model-info">
+                    <div id="model-details" class="card__body">
+                        <p>Select a pricing model above to see details and calculate revenue projections.</p>
+                    </div>
+                </div>
+
+                <div class="revenue-calculator input-section">
+                    <h3>Revenue Calculator</h3>
+                    <div class="input-grid">
+                        <div class="form-group">
+                            <label class="form-label">Expected Customers</label>
+                            <input type="number" id="expected-customers" class="form-control" value="100" min="1">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Price per Customer ($)</label>
+                            <input type="number" id="price-per-customer" class="form-control" value="50" min="0" step="0.01">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Usage Units per Customer</label>
+                            <input type="number" id="usage-units" class="form-control" value="10" min="1">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Price per Usage Unit ($)</label>
+                            <input type="number" id="price-per-unit" class="form-control" value="5" min="0" step="0.01">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="revenue-results">
+                    <div class="revenue-summary">
+                        <h4>Revenue Projection</h4>
+                        <div id="revenue-breakdown" class="cost-grid">
+                            <div class="cost-item">
+                                <span class="cost-label">Monthly Revenue:</span>
+                                <span id="monthly-revenue" class="cost-value">$0</span>
+                            </div>
+                            <div class="cost-item">
+                                <span class="cost-label">Annual Revenue:</span>
+                                <span id="annual-revenue" class="cost-value">$0</span>
+                            </div>
+                            <div class="cost-item">
+                                <span class="cost-label">Revenue per Customer:</span>
+                                <span id="revenue-per-customer" class="cost-value">$0</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ROI Calculator Tab (Simplified) -->
+            <div id="roi-calculator" class="tab-content">
+                <h2>ROI Calculator</h2>
+                
+                <div class="roi-inputs input-section">
+                    <h3>Investment Details</h3>
+                    <div class="input-grid">
+                        <div class="form-group">
+                            <label class="form-label">Total Development Costs ($)</label>
+                            <input type="number" id="development-costs" class="form-control" value="150000" min="0">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Expected Monthly Revenue ($)</label>
+                            <input type="number" id="monthly-revenue-roi" class="form-control" value="25000" min="0">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Monthly Operating Costs ($)</label>
+                            <input type="number" id="monthly-operating-costs" class="form-control" value="5000" min="0">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Risk Assessment</label>
+                            <select id="risk-level" class="form-control">
+                                <option value="low">Low Risk</option>
+                                <option value="medium">Medium Risk</option>
+                                <option value="high">High Risk</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="roi-results">
+                    <div class="roi-metrics-simple">
+                        <div class="summary-grid">
+                            <div class="metric-card">
+                                <h4>Break-Even Time</h4>
+                                <div id="break-even-months" class="metric-value">--</div>
+                                <p>Months to recover investment</p>
+                            </div>
+                            <div class="metric-card">
+                                <h4>3-Year ROI</h4>
+                                <div id="three-year-roi" class="metric-value">--</div>
+                                <p>Return on investment</p>
+                            </div>
+                            <div class="metric-card">
+                                <h4>Monthly Profit</h4>
+                                <div id="monthly-profit" class="metric-value">--</div>
+                                <p>Net monthly income</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="business-impact input-section">
+                    <h3>Business Impact Assessment</h3>
+                    <div class="impact-metrics">
+                        <div class="input-grid">
+                            <div class="form-group">
+                                <label class="form-label">Expected Efficiency Gain</label>
+                                <select id="efficiency-gain" class="form-control">
+                                    <option value="10">10% - Minor improvement</option>
+                                    <option value="25">25% - Moderate improvement</option>
+                                    <option value="50" selected>50% - Significant improvement</option>
+                                    <option value="75">75% - Major improvement</option>
+                                    <option value="100">100% - Transformational</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Market Advantage</label>
+                                <select id="market-advantage" class="form-control">
+                                    <option value="low">Low - Similar to competitors</option>
+                                    <option value="medium" selected>Medium - Competitive edge</option>
+                                    <option value="high">High - Market leadership</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="impact-summary">
+                            <h4>Impact Analysis</h4>
+                            <div id="impact-results" class="cost-grid">
+                                <!-- Populated by JavaScript -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 AI Pricing Calculator. Make informed decisions for your AI investments.</p>
+            <div class="export-actions">
+                <button class="btn btn--secondary" onclick="exportResults()">Export Analysis</button>
+                <button class="btn btn--secondary" onclick="shareConfiguration()">Share Config</button>
+            </div>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
