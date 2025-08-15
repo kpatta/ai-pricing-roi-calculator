@@ -23,6 +23,59 @@
   --color-orange-400: rgba(230, 129, 97, 1);
   --color-orange-500: rgba(168, 75, 47, 1);
 
+  /* AI Theme Colors - Modern & Vibrant */
+  --color-ai-blue-50: rgba(240, 249, 255, 1);
+  --color-ai-blue-100: rgba(224, 242, 254, 1);
+  --color-ai-blue-200: rgba(186, 230, 253, 1);
+  --color-ai-blue-300: rgba(125, 211, 252, 1);
+  --color-ai-blue-400: rgba(56, 189, 248, 1);
+  --color-ai-blue-500: rgba(14, 165, 233, 1);
+  --color-ai-blue-600: rgba(2, 132, 199, 1);
+  --color-ai-blue-700: rgba(3, 105, 161, 1);
+  --color-ai-blue-800: rgba(7, 89, 133, 1);
+  --color-ai-blue-900: rgba(12, 74, 110, 1);
+
+  --color-ai-purple-50: rgba(250, 245, 255, 1);
+  --color-ai-purple-100: rgba(243, 232, 255, 1);
+  --color-ai-purple-200: rgba(233, 213, 255, 1);
+  --color-ai-purple-300: rgba(196, 181, 253, 1);
+  --color-ai-purple-400: rgba(167, 139, 250, 1);
+  --color-ai-purple-500: rgba(139, 92, 246, 1);
+  --color-ai-purple-600: rgba(124, 58, 237, 1);
+  --color-ai-purple-700: rgba(109, 40, 217, 1);
+  --color-ai-purple-800: rgba(91, 33, 182, 1);
+  --color-ai-purple-900: rgba(76, 29, 149, 1);
+
+  --color-ai-cyan-50: rgba(236, 254, 255, 1);
+  --color-ai-cyan-100: rgba(207, 250, 254, 1);
+  --color-ai-cyan-200: rgba(165, 243, 252, 1);
+  --color-ai-cyan-300: rgba(103, 232, 249, 1);
+  --color-ai-cyan-400: rgba(34, 211, 238, 1);
+  --color-ai-cyan-500: rgba(6, 182, 212, 1);
+  --color-ai-cyan-600: rgba(8, 145, 178, 1);
+  --color-ai-cyan-700: rgba(14, 116, 144, 1);
+  --color-ai-cyan-800: rgba(21, 94, 117, 1);
+  --color-ai-cyan-900: rgba(22, 78, 99, 1);
+
+  --color-ai-electric-50: rgba(240, 253, 244, 1);
+  --color-ai-electric-100: rgba(220, 252, 231, 1);
+  --color-ai-electric-200: rgba(187, 247, 208, 1);
+  --color-ai-electric-300: rgba(134, 239, 172, 1);
+  --color-ai-electric-400: rgba(74, 222, 128, 1);
+  --color-ai-electric-500: rgba(34, 197, 94, 1);
+  --color-ai-electric-600: rgba(22, 163, 74, 1);
+  --color-ai-electric-700: rgba(21, 128, 61, 1);
+  --color-ai-electric-800: rgba(22, 101, 52, 1);
+  --color-ai-electric-900: rgba(20, 83, 45, 1);
+
+  /* AI Theme RGB versions */
+  --color-ai-blue-500-rgb: 14, 165, 233;
+  --color-ai-blue-900-rgb: 12, 74, 110;
+  --color-ai-purple-500-rgb: 139, 92, 246;
+  --color-ai-purple-700-rgb: 109, 40, 217;
+  --color-ai-cyan-500-rgb: 6, 182, 212;
+  --color-ai-electric-500-rgb: 34, 197, 94;
+
   /* RGB versions for opacity control */
   --color-brown-600-rgb: 94, 82, 64;
   --color-teal-500-rgb: 33, 128, 141;
@@ -33,37 +86,43 @@
   --color-orange-500-rgb: 168, 75, 47;
   --color-orange-400-rgb: 230, 129, 97;
 
-  /* Background color tokens (Light Mode) */
-  --color-bg-1: rgba(59, 130, 246, 0.08); /* Light blue */
-  --color-bg-2: rgba(245, 158, 11, 0.08); /* Light yellow */
-  --color-bg-3: rgba(34, 197, 94, 0.08); /* Light green */
-  --color-bg-4: rgba(239, 68, 68, 0.08); /* Light red */
-  --color-bg-5: rgba(147, 51, 234, 0.08); /* Light purple */
-  --color-bg-6: rgba(249, 115, 22, 0.08); /* Light orange */
-  --color-bg-7: rgba(236, 72, 153, 0.08); /* Light pink */
-  --color-bg-8: rgba(6, 182, 212, 0.08); /* Light cyan */
+  /* Background color tokens (Light Mode) - AI Theme */
+  --color-bg-1: rgba(14, 165, 233, 0.12); /* AI Blue */
+  --color-bg-2: rgba(139, 92, 246, 0.12); /* AI Purple */
+  --color-bg-3: rgba(34, 197, 94, 0.12); /* AI Electric Green */
+  --color-bg-4: rgba(6, 182, 212, 0.12); /* AI Cyan */
+  --color-bg-5: rgba(167, 139, 250, 0.12); /* AI Purple Light */
+  --color-bg-6: rgba(56, 189, 248, 0.12); /* AI Blue Light */
+  --color-bg-7: rgba(74, 222, 128, 0.12); /* AI Electric Light */
+  --color-bg-8: rgba(34, 211, 238, 0.12); /* AI Cyan Light */
 
-  /* Semantic Color Tokens (Light Mode) */
-  --color-background: var(--color-cream-50);
-  --color-surface: var(--color-cream-100);
-  --color-text: var(--color-slate-900);
-  --color-text-secondary: var(--color-slate-500);
-  --color-primary: var(--color-teal-500);
-  --color-primary-hover: var(--color-teal-600);
-  --color-primary-active: var(--color-teal-700);
-  --color-secondary: rgba(var(--color-brown-600-rgb), 0.12);
-  --color-secondary-hover: rgba(var(--color-brown-600-rgb), 0.2);
-  --color-secondary-active: rgba(var(--color-brown-600-rgb), 0.25);
-  --color-border: rgba(var(--color-brown-600-rgb), 0.2);
-  --color-btn-primary-text: var(--color-cream-50);
-  --color-card-border: rgba(var(--color-brown-600-rgb), 0.12);
-  --color-card-border-inner: rgba(var(--color-brown-600-rgb), 0.12);
+  /* AI Gradient Backgrounds */
+  --gradient-ai-primary: linear-gradient(135deg, var(--color-ai-blue-500) 0%, var(--color-ai-purple-500) 50%, var(--color-ai-cyan-500) 100%);
+  --gradient-ai-secondary: linear-gradient(135deg, var(--color-ai-purple-400) 0%, var(--color-ai-blue-400) 100%);
+  --gradient-ai-accent: linear-gradient(135deg, var(--color-ai-cyan-400) 0%, var(--color-ai-electric-400) 100%);
+  --gradient-ai-glow: linear-gradient(135deg, rgba(14, 165, 233, 0.3) 0%, rgba(139, 92, 246, 0.3) 50%, rgba(6, 182, 212, 0.3) 100%);
+
+  /* Semantic Color Tokens (Light Mode) - AI Enhanced */
+  --color-background: linear-gradient(135deg, var(--color-ai-blue-50) 0%, var(--color-ai-purple-50) 50%, var(--color-ai-cyan-50) 100%);
+  --color-surface: rgba(255, 255, 255, 0.95);
+  --color-text: var(--color-ai-blue-900);
+  --color-text-secondary: var(--color-ai-purple-700);
+  --color-primary: var(--color-ai-blue-500);
+  --color-primary-hover: var(--color-ai-blue-600);
+  --color-primary-active: var(--color-ai-blue-700);
+  --color-secondary: rgba(var(--color-ai-purple-500-rgb), 0.15);
+  --color-secondary-hover: rgba(var(--color-ai-purple-500-rgb), 0.25);
+  --color-secondary-active: rgba(var(--color-ai-purple-500-rgb), 0.35);
+  --color-border: rgba(var(--color-ai-blue-500-rgb), 0.2);
+  --color-btn-primary-text: var(--color-white);
+  --color-card-border: rgba(var(--color-ai-blue-500-rgb), 0.15);
+  --color-card-border-inner: rgba(var(--color-ai-purple-500-rgb), 0.1);
   --color-error: var(--color-red-500);
-  --color-success: var(--color-teal-500);
+  --color-success: var(--color-ai-electric-500);
   --color-warning: var(--color-orange-500);
-  --color-info: var(--color-slate-500);
-  --color-focus-ring: rgba(var(--color-teal-500-rgb), 0.4);
-  --color-select-caret: rgba(var(--color-slate-900-rgb), 0.8);
+  --color-info: var(--color-ai-cyan-500);
+  --color-focus-ring: rgba(var(--color-ai-blue-500-rgb), 0.4);
+  --color-select-caret: rgba(var(--color-ai-blue-900-rgb), 0.8);
 
   /* Common style patterns */
   --focus-ring: 0 0 0 3px var(--color-focus-ring);
@@ -122,17 +181,18 @@
   --radius-lg: 12px;
   --radius-full: 9999px;
 
-  /* Shadows */
-  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.02);
-  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.04),
-    0 2px 4px -1px rgba(0, 0, 0, 0.02);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.04),
-    0 4px 6px -2px rgba(0, 0, 0, 0.02);
-  --shadow-inset-sm: inset 0 1px 0 rgba(255, 255, 255, 0.15),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.03);
+  /* Shadows - Enhanced for AI Theme */
+  --shadow-xs: 0 1px 2px rgba(14, 165, 233, 0.05);
+  --shadow-sm: 0 1px 3px rgba(14, 165, 233, 0.1), 0 1px 2px rgba(139, 92, 246, 0.06);
+  --shadow-md: 0 4px 6px -1px rgba(14, 165, 233, 0.1), 0 2px 4px -1px rgba(139, 92, 246, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(14, 165, 233, 0.1), 0 4px 6px -2px rgba(139, 92, 246, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(14, 165, 233, 0.1), 0 10px 10px -5px rgba(139, 92, 246, 0.04);
+  --shadow-2xl: 0 25px 50px -12px rgba(14, 165, 233, 0.25);
+  --shadow-ai-glow: 0 0 20px rgba(14, 165, 233, 0.3), 0 0 40px rgba(139, 92, 246, 0.2);
+  --shadow-ai-glow-strong: 0 0 30px rgba(14, 165, 233, 0.4), 0 0 60px rgba(139, 92, 246, 0.3);
+  --shadow-inset-ai: inset 0 1px 0 rgba(255, 255, 255, 0.2), inset 0 -1px 0 rgba(14, 165, 233, 0.1);
 
-  /* Animation */
+  /* Animation - Enhanced for AI Theme */
   --duration-fast: 150ms;
   --duration-normal: 250ms;
   --ease-standard: cubic-bezier(0.16, 1, 0.3, 1);
@@ -202,6 +262,24 @@
     --color-error-rgb: var(--color-red-400-rgb);
     --color-warning-rgb: var(--color-orange-400-rgb);
     --color-info-rgb: var(--color-gray-300-rgb);
+  /* Background color tokens (Dark Mode) - Green Theme */
+  --color-bg-green-1: var(--color-green-900);
+  --color-bg-green-2: var(--color-green-800);
+  --color-bg-green-3: var(--color-green-700);
+  --color-bg-green-4: var(--color-green-600);
+  --color-bg-green-5: var(--color-green-500);
+  --color-bg-green-6: var(--color-green-400);
+  --color-bg-green-7: var(--color-green-300);
+  --color-bg-green-8: var(--color-green-200);
+
+  /* Semantic Color Tokens (Dark Mode) - Green Theme */
+  --color-background-green: var(--color-green-900);
+  --color-surface-green: var(--color-green-800);
+  --color-text-green: var(--color-green-100);
+  --color-text-secondary-green: var(--color-green-300);
+  --color-primary-green: var(--color-green-400);
+  --color-primary-hover-green: var(--color-green-300);
+  --color-primary-active-green: var(--color-green-200);
   }
 }
 
@@ -297,13 +375,13 @@
   --color-info-rgb: var(--color-slate-500-rgb);
 }
 
-/* Base styles */
+/* Base styles - AI Enhanced */
 html {
   font-size: var(--font-size-base);
   font-family: var(--font-family-base);
   line-height: var(--line-height-normal);
   color: var(--color-text);
-  background-color: var(--color-background);
+  background: var(--color-background);
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
 }
@@ -311,6 +389,24 @@ html {
 body {
   margin: 0;
   padding: 0;
+  background: var(--gradient-ai-primary);
+  min-height: 100vh;
+  position: relative;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 20%, rgba(14, 165, 233, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(139, 92, 246, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 40% 60%, rgba(6, 182, 212, 0.1) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: -1;
 }
 
 *,
@@ -319,7 +415,7 @@ body {
   box-sizing: inherit;
 }
 
-/* Typography */
+/* Typography - AI Enhanced */
 h1,
 h2,
 h3,
@@ -329,12 +425,31 @@ h6 {
   margin: 0;
   font-weight: var(--font-weight-semibold);
   line-height: var(--line-height-tight);
-  color: var(--color-text);
   letter-spacing: var(--letter-spacing-tight);
+  color: var(--color-white);
+  position: relative;
+  text-shadow: 
+    0 0 20px rgba(14, 165, 233, 0.6),
+    0 0 40px rgba(139, 92, 246, 0.4),
+    0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+h1::after,
+h2::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--gradient-ai-accent);
+  border-radius: 1px;
+  opacity: 0.6;
 }
 
 h1 {
   font-size: var(--font-size-4xl);
+  font-weight: var(--font-weight-bold);
 }
 h2 {
   font-size: var(--font-size-3xl);
@@ -350,6 +465,22 @@ h5 {
 }
 h6 {
   font-size: var(--font-size-md);
+}
+
+/* Card headers - specific styling for headers within white background cards/tiles */
+.card h1, .card h2, .card h3, .card h4, .card h5, .card h6,
+.feature-card h1, .feature-card h2, .feature-card h3, .feature-card h4, .feature-card h5, .feature-card h6,
+.provider-card h1, .provider-card h2, .provider-card h3, .provider-card h4, .provider-card h5, .provider-card h6,
+.phase-card h1, .phase-card h2, .phase-card h3, .phase-card h4, .phase-card h5, .phase-card h6,
+.summary-card h1, .summary-card h2, .summary-card h3, .summary-card h4, .summary-card h5, .summary-card h6,
+.metric-card h1, .metric-card h2, .metric-card h3, .metric-card h4, .metric-card h5, .metric-card h6 {
+  color: var(--color-ai-blue-700) !important;
+  background: none !important;
+  -webkit-background-clip: initial !important;
+  -webkit-text-fill-color: initial !important;
+  background-clip: initial !important;
+  text-shadow: none !important;
+  font-weight: var(--font-weight-bold) !important;
 }
 
 p {
@@ -390,7 +521,7 @@ pre code {
   padding: 0;
 }
 
-/* Buttons */
+/* Buttons - AI Enhanced */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -405,37 +536,63 @@ pre code {
   border: none;
   text-decoration: none;
   position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.btn:hover::before {
+  left: 100%;
 }
 
 .btn:focus-visible {
   outline: none;
-  box-shadow: var(--focus-ring);
+  box-shadow: var(--shadow-ai-glow);
 }
 
 .btn--primary {
-  background: var(--color-primary);
-  color: var(--color-btn-primary-text);
+  background: var(--gradient-ai-secondary);
+  color: var(--color-white);
+  box-shadow: var(--shadow-md), var(--shadow-ai-glow);
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .btn--primary:hover {
-  background: var(--color-primary-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg), var(--shadow-ai-glow-strong);
 }
 
 .btn--primary:active {
-  background: var(--color-primary-active);
+  transform: translateY(0);
+  box-shadow: var(--shadow-sm), var(--shadow-ai-glow);
 }
 
 .btn--secondary {
-  background: var(--color-secondary);
+  background: rgba(255, 255, 255, 0.1);
   color: var(--color-text);
+  border: 1px solid rgba(var(--color-ai-blue-500-rgb), 0.3);
+  backdrop-filter: blur(10px);
 }
 
 .btn--secondary:hover {
-  background: var(--color-secondary-hover);
+  background: rgba(255, 255, 255, 0.2);
+  border-color: var(--color-ai-blue-400);
+  transform: translateY(-1px);
 }
 
 .btn--secondary:active {
-  background: var(--color-secondary-active);
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(0);
 }
 
 .btn--outline {
@@ -469,19 +626,36 @@ pre code {
   cursor: not-allowed;
 }
 
-/* Form elements */
+/* Form elements - AI Enhanced */
 .form-control {
   display: block;
   width: 100%;
-  padding: var(--space-8) var(--space-12);
+  padding: var(--space-12) var(--space-16);
   font-size: var(--font-size-md);
   line-height: 1.5;
   color: var(--color-text);
-  background-color: var(--color-surface);
-  border: 1px solid var(--color-border);
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(var(--color-ai-blue-500-rgb), 0.3);
   border-radius: var(--radius-base);
-  transition: border-color var(--duration-fast) var(--ease-standard),
-    box-shadow var(--duration-fast) var(--ease-standard);
+  transition: all var(--duration-normal) var(--ease-standard);
+  backdrop-filter: blur(10px);
+  position: relative;
+}
+
+.form-control::placeholder {
+  color: rgba(var(--color-ai-purple-700-rgb), 0.6);
+}
+
+.form-control:focus {
+  border-color: var(--color-ai-blue-500);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(var(--color-ai-blue-500-rgb), 0.1), var(--shadow-ai-glow);
+  background: rgba(255, 255, 255, 0.95);
+}
+
+.form-control:hover {
+  border-color: var(--color-ai-blue-400);
+  background: rgba(255, 255, 255, 0.95);
 }
 
 textarea.form-control {
@@ -527,34 +701,115 @@ select.form-control {
   margin-bottom: var(--space-8);
   font-weight: var(--font-weight-medium);
   font-size: var(--font-size-sm);
+  color: var(--color-ai-blue-700);
+}
+
+/* Ensure labels in white background sections are visible */
+.input-section .form-label,
+.pricing-inputs .form-label,
+.revenue-calculator .form-label,
+.card .form-label,
+.feature-card .form-label,
+.provider-card .form-label {
+  color: var(--color-ai-blue-700) !important;
+}
+
+/* Ensure all text in white background sections is visible */
+.input-section,
+.pricing-inputs,
+.revenue-calculator,
+.revenue-results,
+.roi-metrics-simple,
+.card,
+.feature-card,
+.provider-card,
+.phase-card,
+.summary-card,
+.metric-card {
+  color: var(--color-ai-blue-800);
+}
+
+/* Specific text elements in white sections */
+.input-section p,
+.pricing-inputs p,
+.revenue-calculator p,
+.card p,
+.feature-card p,
+.provider-card p {
+  color: var(--color-ai-blue-700) !important;
+}
+
+/* Comprehensive fix for any white background containers */
+.tab-content section,
+.tab-content div[class*="section"],
+.tab-content div[class*="calculator"],
+.tab-content div[class*="configuration"],
+.tab-content div[class*="summary"] {
+    color: var(--color-ai-blue-800);
+}
+
+.tab-content section h1, .tab-content section h2, .tab-content section h3, .tab-content section h4, .tab-content section h5, .tab-content section h6,
+.tab-content div[class*="section"] h1, .tab-content div[class*="section"] h2, .tab-content div[class*="section"] h3, .tab-content div[class*="section"] h4, .tab-content div[class*="section"] h5, .tab-content div[class*="section"] h6,
+.tab-content div[class*="calculator"] h1, .tab-content div[class*="calculator"] h2, .tab-content div[class*="calculator"] h3, .tab-content div[class*="calculator"] h4, .tab-content div[class*="calculator"] h5, .tab-content div[class*="calculator"] h6,
+.tab-content div[class*="configuration"] h1, .tab-content div[class*="configuration"] h2, .tab-content div[class*="configuration"] h3, .tab-content div[class*="configuration"] h4, .tab-content div[class*="configuration"] h5, .tab-content div[class*="configuration"] h6,
+.tab-content div[class*="summary"] h1, .tab-content div[class*="summary"] h2, .tab-content div[class*="summary"] h3, .tab-content div[class*="summary"] h4, .tab-content div[class*="summary"] h5, .tab-content div[class*="summary"] h6,
+.tab-content div[class*="validation"] h1, .tab-content div[class*="validation"] h2, .tab-content div[class*="validation"] h3, .tab-content div[class*="validation"] h4, .tab-content div[class*="validation"] h5, .tab-content div[class*="validation"] h6,
+.tab-content div[class*="recommendation"] h1, .tab-content div[class*="recommendation"] h2, .tab-content div[class*="recommendation"] h3, .tab-content div[class*="recommendation"] h4, .tab-content div[class*="recommendation"] h5, .tab-content div[class*="recommendation"] h6,
+.tab-content div[class*="results"] h1, .tab-content div[class*="results"] h2, .tab-content div[class*="results"] h3, .tab-content div[class*="results"] h4, .tab-content div[class*="results"] h5, .tab-content div[class*="results"] h6,
+.tab-content div[class*="analysis"] h1, .tab-content div[class*="analysis"] h2, .tab-content div[class*="analysis"] h3, .tab-content div[class*="analysis"] h4, .tab-content div[class*="analysis"] h5, .tab-content div[class*="analysis"] h6 {
+    color: var(--color-ai-blue-800) !important;
+    text-shadow: none !important;
+    font-weight: var(--font-weight-bold) !important;
 }
 
 .form-group {
   margin-bottom: var(--space-16);
 }
 
-/* Card component */
+/* Card component - AI Enhanced */
 .card {
-  background-color: var(--color-surface);
+  background: rgba(255, 255, 255, 0.95);
   border-radius: var(--radius-lg);
-  border: 1px solid var(--color-card-border);
-  box-shadow: var(--shadow-sm);
+  border: 1px solid rgba(var(--color-ai-blue-500-rgb), 0.2);
+  box-shadow: var(--shadow-md), 0 0 20px rgba(14, 165, 233, 0.1);
   overflow: hidden;
-  transition: box-shadow var(--duration-normal) var(--ease-standard);
+  transition: all var(--duration-normal) var(--ease-standard);
+  position: relative;
+  backdrop-filter: blur(10px);
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--gradient-ai-accent);
+  opacity: 0;
+  transition: opacity var(--duration-normal) var(--ease-standard);
 }
 
 .card:hover {
-  box-shadow: var(--shadow-md);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-xl), var(--shadow-ai-glow);
+  border-color: var(--color-ai-blue-400);
+}
+
+.card:hover::before {
+  opacity: 1;
 }
 
 .card__body {
-  padding: var(--space-16);
+  padding: var(--space-24);
+  position: relative;
 }
 
 .card__header,
 .card__footer {
-  padding: var(--space-16);
-  border-bottom: 1px solid var(--color-card-border-inner);
+  padding: var(--space-20);
+  border-bottom: 1px solid rgba(var(--color-ai-purple-500-rgb), 0.1);
+  background: rgba(var(--color-ai-blue-50), 0.5);
 }
 
 /* Status indicators - simplified with CSS variables */
@@ -737,62 +992,117 @@ select.form-control {
     format('woff2');
 }
 
-/* END PERPLEXITY DESIGN SYSTEM */
-/* Header Styles */
+/* Header Styles - AI Enhanced */
 .header {
-    background: var(--color-surface);
-    border-bottom: 1px solid var(--color-border);
-    padding: var(--space-24) 0;
+    background: rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(var(--color-ai-blue-500-rgb), 0.3);
+    padding: var(--space-32) 0;
     text-align: center;
+    backdrop-filter: blur(20px);
+    position: relative;
+}
+
+.header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--gradient-ai-glow);
+    opacity: 0.1;
+    pointer-events: none;
 }
 
 .header h1 {
-    font-size: var(--font-size-4xl);
-    color: var(--color-text);
-    margin-bottom: var(--space-8);
+  font-size: var(--font-size-4xl);
+  color: var(--color-white);
+  margin-bottom: var(--space-12);
+  background: none;
+  -webkit-background-clip: initial;
+  -webkit-text-fill-color: initial;
+  background-clip: initial;
+  text-shadow: 
+    0 0 20px rgba(14, 165, 233, 0.8),
+    0 0 40px rgba(139, 92, 246, 0.6),
+    0 2px 4px rgba(0, 0, 0, 0.3);
+  position: relative;
+  z-index: 1;
+  font-weight: var(--font-weight-bold);
 }
 
 .header p {
-    color: var(--color-text-secondary);
+    color: rgba(255, 255, 255, 0.9);
     font-size: var(--font-size-lg);
     margin: 0;
+    position: relative;
+    z-index: 1;
 }
 
-/* Tab Navigation */
+/* Tab Navigation - AI Enhanced */
 .tab-navigation {
-    background: var(--color-background);
-    border-bottom: 1px solid var(--color-border);
-    padding: var(--space-16) 0;
+    background: rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(var(--color-ai-purple-500-rgb), 0.2);
+    padding: var(--space-20) 0;
+    backdrop-filter: blur(10px);
 }
 
 .tab-buttons {
     display: flex;
-    gap: var(--space-8);
+    gap: var(--space-12);
     flex-wrap: wrap;
     justify-content: center;
 }
 
 .tab-btn {
-    padding: var(--space-12) var(--space-20);
-    border: none;
-    background: transparent;
-    color: var(--color-text-secondary);
+    padding: var(--space-12) var(--space-24);
+    border: 1px solid rgba(var(--color-ai-blue-500-rgb), 0.3);
+    background: rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.8);
     font-size: var(--font-size-sm);
     font-weight: var(--font-weight-medium);
-    border-radius: var(--radius-base);
+    border-radius: var(--radius-full);
     cursor: pointer;
-    transition: all var(--duration-fast) var(--ease-standard);
+    transition: all var(--duration-normal) var(--ease-standard);
     white-space: nowrap;
+    position: relative;
+    backdrop-filter: blur(10px);
+}
+
+.tab-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--gradient-ai-secondary);
+    opacity: 0;
+    border-radius: inherit;
+    transition: opacity var(--duration-normal) var(--ease-standard);
+    z-index: -1;
 }
 
 .tab-btn:hover {
-    background: var(--color-secondary);
-    color: var(--color-text);
+    color: var(--color-white);
+    border-color: var(--color-ai-blue-400);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.tab-btn:hover::before {
+    opacity: 0.7;
 }
 
 .tab-btn.active {
-    background: var(--color-primary);
-    color: var(--color-btn-primary-text);
+    color: var(--color-white);
+    border-color: var(--color-ai-cyan-400);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-ai-glow);
+}
+
+.tab-btn.active::before {
+    opacity: 1;
 }
 
 /* Main Content */
@@ -856,7 +1166,12 @@ select.form-control {
 .feature-card h3 {
     font-size: var(--font-size-xl);
     margin-bottom: var(--space-12);
-    color: var(--color-text);
+    color: var(--color-ai-blue-800) !important;
+    background: none !important;
+    -webkit-background-clip: initial !important;
+    -webkit-text-fill-color: initial !important;
+    background-clip: initial !important;
+    font-weight: var(--font-weight-bold);
 }
 
 .feature-card p {
@@ -909,8 +1224,13 @@ select.form-control {
 
 .provider-info h4 {
     font-size: var(--font-size-lg);
-    color: var(--color-text);
+    color: var(--color-ai-purple-700) !important;
+    background: none !important;
+    -webkit-background-clip: initial !important;
+    -webkit-text-fill-color: initial !important;
+    background-clip: initial !important;
     margin-bottom: var(--space-4);
+    font-weight: var(--font-weight-bold);
 }
 
 .provider-info .model-name {
@@ -1117,6 +1437,22 @@ select.form-control {
     padding: var(--space-24);
 }
 
+/* Validation and results section headers need dark colors */
+.validation-alerts h1, .validation-alerts h2, .validation-alerts h3, .validation-alerts h4, .validation-alerts h5, .validation-alerts h6,
+.results-summary h1, .results-summary h2, .results-summary h3, .results-summary h4, .results-summary h5, .results-summary h6 {
+    color: var(--color-ai-blue-800) !important;
+    text-shadow: none !important;
+    font-weight: var(--font-weight-bold) !important;
+}
+
+/* Also catch any usage-related sections */
+.usage-results h1, .usage-results h2, .usage-results h3, .usage-results h4, .usage-results h5, .usage-results h6,
+.usage-configuration h1, .usage-configuration h2, .usage-configuration h3, .usage-configuration h4, .usage-configuration h5, .usage-configuration h6 {
+    color: var(--color-ai-purple-700) !important;
+    text-shadow: none !important;
+    font-weight: var(--font-weight-bold) !important;
+}
+
 .cost-grid {
     display: grid;
     gap: var(--space-12);
@@ -1217,8 +1553,12 @@ select.form-control {
 
 .phase-title {
     flex: 1;
-    font-weight: var(--font-weight-semibold);
-    color: var(--color-text);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-ai-blue-700) !important;
+    background: none !important;
+    -webkit-background-clip: initial !important;
+    -webkit-text-fill-color: initial !important;
+    background-clip: initial !important;
 }
 
 .phase-cost {
@@ -1319,7 +1659,12 @@ select.form-control {
 
 .summary-card h4 {
     margin-bottom: var(--space-16);
-    color: var(--color-text);
+    color: var(--color-ai-cyan-700) !important;
+    background: none !important;
+    -webkit-background-clip: initial !important;
+    -webkit-text-fill-color: initial !important;
+    background-clip: initial !important;
+    font-weight: var(--font-weight-bold);
 }
 
 /* Input Sections */
@@ -1329,6 +1674,22 @@ select.form-control {
     border-radius: var(--radius-lg);
     padding: var(--space-24);
     margin-bottom: var(--space-24);
+}
+
+/* Headers within white background sections need dark colors */
+.input-section h1, .input-section h2, .input-section h3, .input-section h4, .input-section h5, .input-section h6,
+.pricing-inputs h1, .pricing-inputs h2, .pricing-inputs h3, .pricing-inputs h4, .pricing-inputs h5, .pricing-inputs h6,
+.revenue-calculator h1, .revenue-calculator h2, .revenue-calculator h3, .revenue-calculator h4, .revenue-calculator h5, .revenue-calculator h6,
+.revenue-results h1, .revenue-results h2, .revenue-results h3, .revenue-results h4, .revenue-results h5, .revenue-results h6,
+.roi-metrics-simple h1, .roi-metrics-simple h2, .roi-metrics-simple h3, .roi-metrics-simple h4, .roi-metrics-simple h5, .roi-metrics-simple h6 {
+    color: var(--color-ai-blue-800) !important;
+    text-shadow: none !important;
+    font-weight: var(--font-weight-bold) !important;
+}
+
+/* Also apply to sections with white/light backgrounds */
+.pricing-inputs h1,.pricing-model-info h4 ,.pricing-inputs h2, .pricing-inputs h3, .pricing-inputs h4, .pricing-inputs h5, .pricing-inputs h6 {
+    color: var(--color-ai-purple-700) !important;
 }
 
 .input-grid {
@@ -1376,12 +1737,27 @@ select.form-control {
     margin-bottom: var(--space-24);
 }
 
+/* Infrastructure section headers need dark colors */
+.infrastructure-section h1, .infrastructure-section h2, .infrastructure-section h3, .infrastructure-section h4, .infrastructure-section h5, .infrastructure-section h6 {
+    color: var(--color-ai-blue-800) !important;
+    text-shadow: none !important;
+    font-weight: var(--font-weight-bold) !important;
+}
+
 .cost-summary,
 .tco-analysis {
     background: var(--color-bg-2);
     border-radius: var(--radius-lg);
     padding: var(--space-20);
     margin-top: var(--space-24);
+}
+
+/* Cost summary headers need dark colors */
+.cost-summary h1, .cost-summary h2, .cost-summary h3, .cost-summary h4, .cost-summary h5, .cost-summary h6,
+.tco-analysis h1, .tco-analysis h2, .tco-analysis h3, .tco-analysis h4, .tco-analysis h5, .tco-analysis h6 {
+    color: var(--color-ai-purple-800) !important;
+    text-shadow: none !important;
+    font-weight: var(--font-weight-bold) !important;
 }
 
 .cost-breakdown {
@@ -1440,7 +1816,12 @@ select.form-control {
 
 .impact-summary h4 {
     margin-bottom: var(--space-16);
-    color: var(--color-text);
+    color: var(--color-ai-purple-600) !important;
+    background: none !important;
+    -webkit-background-clip: initial !important;
+    -webkit-text-fill-color: initial !important;
+    background-clip: initial !important;
+    font-weight: var(--font-weight-bold);
 }
 
 .metric-card {
@@ -1453,9 +1834,13 @@ select.form-control {
 
 .metric-card h4 {
     font-size: var(--font-size-base);
-    color: var(--color-text-secondary);
+    color: var(--color-ai-blue-600) !important;
+    background: none !important;
+    -webkit-background-clip: initial !important;
+    -webkit-text-fill-color: initial !important;
+    background-clip: initial !important;
     margin-bottom: var(--space-8);
-    font-weight: var(--font-weight-medium);
+    font-weight: var(--font-weight-bold);
 }
 
 .metric-value {
@@ -1605,4 +1990,118 @@ select.form-control {
     .phase-duration {
         margin-right: 0;
     }
+}
+
+/* AI Theme Enhancements */
+
+/* Glassmorphism utilities */
+.glass {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.glass-strong {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* AI Glow effects */
+.ai-glow {
+    box-shadow: var(--shadow-ai-glow);
+}
+
+.ai-glow-strong {
+    box-shadow: var(--shadow-ai-glow-strong);
+}
+
+/* Gradient text utilities */
+.text-gradient-primary {
+    background: var(--gradient-ai-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.text-gradient-secondary {
+    background: var(--gradient-ai-secondary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Floating animation */
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse-glow {
+    0%, 100% { box-shadow: var(--shadow-ai-glow); }
+    50% { box-shadow: var(--shadow-ai-glow-strong); }
+}
+
+@keyframes gradient-shift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.animate-float {
+    animation: float 3s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.animate-gradient {
+    background-size: 200% 200%;
+    animation: gradient-shift 4s ease infinite;
+}
+
+/* Modern scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(var(--color-ai-blue-900-rgb), 0.1);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--gradient-ai-secondary);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--gradient-ai-primary);
+}
+
+/* Enhanced feature cards */
+.feature-card {
+    background: rgba(255, 255, 255, 0.95) !important;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(var(--color-ai-blue-500-rgb), 0.2) !important;
+    transition: all var(--duration-normal) var(--ease-standard) !important;
+}
+
+.feature-card:hover {
+    transform: translateY(-8px) !important;
+    box-shadow: var(--shadow-xl), var(--shadow-ai-glow) !important;
+    border-color: var(--color-ai-cyan-400) !important;
+}
+
+/* Enhanced provider cards */
+.provider-card {
+    background: rgba(255, 255, 255, 0.95) !important;
+    backdrop-filter: blur(10px) !important;
+    border: 1px solid rgba(var(--color-ai-purple-500-rgb), 0.2) !important;
+}
+
+.provider-card:hover {
+    transform: translateY(-4px) !important;
+    box-shadow: var(--shadow-lg), var(--shadow-ai-glow) !important;
 }

@@ -1,13 +1,176 @@
+// (removed stray brace)
 // AI Pricing Calculator Enhanced JavaScript (with Reverted Pricing Strategy and ROI)
 
 // Enhanced data from provided JSON with the new structure
 let pricingData = {
+    // Project types for the development planner
+    projectTypes: [
+        {
+            key: 'ai_chatbot',
+            name: 'AI Chatbot / Virtual Assistant',
+            description: 'Conversational AI for customer support, automation, or virtual assistance.',
+            relevantPhases: [
+                'Problem Definition & Requirements Analysis',
+                'Data Collection & Acquisition',
+                'Data Processing & Preparation',
+                'LLM/SLM Selection & Integration',
+                'Prompt Engineering & Optimization',
+                'Evaluation & Alignment',
+                'Guardrails & Safety Implementation',
+                'Application Development & Integration',
+                'Deployment & Production Launch',
+                'Monitoring & Maintenance'
+            ]
+        },
+        {
+            key: 'computer_vision',
+            name: 'Computer Vision Application',
+            description: 'Image/video analysis, object detection, classification, or recognition.',
+            relevantPhases: [
+                'Problem Definition & Requirements Analysis',
+                'Data Collection & Acquisition',
+                'Data Processing & Preparation',
+                'Model Development & Training',
+                'Model Validation & Testing',
+                'Infrastructure & Platform Setup',
+                'Application Development & Integration',
+                'Deployment & Production Launch',
+                'Monitoring & Maintenance'
+            ]
+        },
+        {
+            key: 'predictive_analytics',
+            name: 'Predictive Analytics / Forecasting',
+            description: 'Business forecasting, demand prediction, or risk modeling.',
+            relevantPhases: [
+                'Problem Definition & Requirements Analysis',
+                'Data Strategy & Architecture',
+                'Data Collection & Acquisition',
+                'Data Processing & Preparation',
+                'Model Development & Training',
+                'Model Validation & Testing',
+                'Application Development & Integration',
+                'Deployment & Production Launch',
+                'Monitoring & Maintenance'
+            ]
+        },
+        {
+            key: 'recommendation_system',
+            name: 'Recommendation System',
+            description: 'Personalized product/content recommendations for users.',
+            relevantPhases: [
+                'Problem Definition & Requirements Analysis',
+                'Data Collection & Acquisition',
+                'Data Processing & Preparation',
+                'Model Development & Training',
+                'Model Validation & Testing',
+                'Application Development & Integration',
+                'Deployment & Production Launch',
+                'Monitoring & Maintenance'
+            ]
+        },
+        {
+            key: 'nlp_text_analytics',
+            name: 'NLP / Text Analytics',
+            description: 'Text mining, sentiment analysis, summarization, or classification.',
+            relevantPhases: [
+                'Problem Definition & Requirements Analysis',
+                'Data Collection & Acquisition',
+                'Data Processing & Preparation',
+                'Model Development & Training',
+                'Model Validation & Testing',
+                'Application Development & Integration',
+                'Deployment & Production Launch',
+                'Monitoring & Maintenance'
+            ]
+        },
+        {
+            key: 'rpa',
+            name: 'Robotic Process Automation (RPA)',
+            description: 'Automate repetitive business processes using bots.',
+            relevantPhases: [
+                'Problem Definition & Requirements Analysis',
+                'Data Strategy & Architecture',
+                'Application Development & Integration',
+                'Deployment & Production Launch',
+                'Monitoring & Maintenance'
+            ]
+        },
+        /*{
+            key: 'iot_analytics',
+            name: 'IoT Analytics Platform',
+            description: 'Analytics and insights from IoT device/sensor data.',
+            relevantPhases: [
+                'Problem Definition & Requirements Analysis',
+                'Data Strategy & Architecture',
+                'Data Collection & Acquisition',
+                'Data Processing & Preparation',
+                'Model Development & Training',
+                'Model Validation & Testing',
+                'Infrastructure & Platform Setup',
+                'Application Development & Integration',
+                'Deployment & Production Launch',
+                'Monitoring & Maintenance'
+            ]
+        },*/
+        // --- New Project Types ---
+        {
+            key: 'genai_llm_app',
+            name: 'GenAI / LLM-based Application',
+            description: 'Applications leveraging large language models for content generation, summarization, Q&A, code generation, etc.',
+            relevantPhases: [
+                'Problem Definition & Requirements Analysis',
+                'Data Collection & Acquisition',
+                'Data Processing & Preparation',
+                'LLM/SLM Selection & Integration',
+                'Prompt Engineering & Optimization',
+                'Evaluation & Alignment',
+                'Guardrails & Safety Implementation',
+                'Infrastructure & Platform Setup',
+                'Application Development & Integration',
+                'Deployment & Production Launch',
+                'Monitoring & Maintenance'
+            ]
+        },
+        {
+            key: 'agentic_ai',
+            name: 'Agentic AI System',
+            description: 'Autonomous or semi-autonomous AI agents capable of planning, reasoning, and acting in complex environments.',
+            relevantPhases: [
+                'Problem Definition & Requirements Analysis',
+                'Data Strategy & Architecture',
+                'Data Collection & Acquisition',
+                'Data Processing & Preparation',
+                'LLM/SLM Selection & Integration',
+                'Prompt Engineering & Optimization',
+                'Evaluation & Alignment',
+                'Guardrails & Safety Implementation',
+                'Infrastructure & Platform Setup',
+                'Application Development & Integration',
+                'Deployment & Production Launch',
+                'Monitoring & Maintenance'
+            ]
+        },
+        {
+            key: 'mcp',
+            name: 'Model Context Protocol (MCP) Integration',
+            description: 'Projects focused on integrating or building with the Model Context Protocol for interoperable AI systems.',
+            relevantPhases: [
+                'Problem Definition & Requirements Analysis',
+                'Data Strategy & Architecture',
+                'Infrastructure & Platform Setup',
+                'Application Development & Integration',
+                'Deployment & Production Launch',
+                'Monitoring & Maintenance'
+            ]
+        }
+    ],
     cloudLLMProviders: [
         {
-            provider: "OpenAI GPT-4.5 Turbo",
-            model_name: "gpt-4.5-turbo",
-            input_tokens_per_1k: 75.0,
-            output_tokens_per_1k: 150.0,
+            provider: "OpenAI GPT-5 Turbo",
+            model_name: "gpt-5-turbo",
+            input_tokens_per_1k: 0.0013,
+            output_tokens_per_1k: 0.01,
             context_window: 200000,
             max_output_tokens: 32000,
             model_tier: "Premium",
@@ -17,8 +180,8 @@ let pricingData = {
         {
             provider: "OpenAI GPT-4.1 Turbo",
             model_name: "gpt-4.1-turbo",
-            input_tokens_per_1k: 8.0,
-            output_tokens_per_1k: 24.0,
+            input_tokens_per_1k: 0.002,
+            output_tokens_per_1k: 0.008,
             context_window: 200000,
             max_output_tokens: 16000,
             model_tier: "Premium",
@@ -26,10 +189,10 @@ let pricingData = {
             features: ["multimodal", "function_calling"]
         },
         {
-            provider: "OpenAI GPT-4o",
-            model_name: "gpt-4o",
-            input_tokens_per_1k: 2.5,
-            output_tokens_per_1k: 10.0,
+            provider: "Amazon Nova Premier",
+            model_name: "amazon-nova-premier",
+            input_tokens_per_1k: 0.0025,
+            output_tokens_per_1k: 0.0125,
             context_window: 128000,
             max_output_tokens: 16000,
             model_tier: "Standard",
@@ -37,21 +200,10 @@ let pricingData = {
             features: ["multimodal", "function_calling"]
         },
         {
-            provider: "OpenAI GPT-4o Mini",
-            model_name: "gpt-4o-mini",
-            input_tokens_per_1k: 0.15,
-            output_tokens_per_1k: 0.6,
-            context_window: 128000,
-            max_output_tokens: 16000,
-            model_tier: "Budget",
-            rate_limits: { rpm: 10000, tpm: 2000000, rps: 167 },
-            features: ["function_calling"]
-        },
-        {
             provider: "Anthropic Claude Opus 4",
             model_name: "claude-opus-4",
-            input_tokens_per_1k: 15.0,
-            output_tokens_per_1k: 75.0,
+            input_tokens_per_1k: 0.015,
+            output_tokens_per_1k: 0.075,
             context_window: 200000,
             max_output_tokens: 8000,
             model_tier: "Premium",
@@ -61,8 +213,30 @@ let pricingData = {
         {
             provider: "Anthropic Claude Sonnet 4",
             model_name: "claude-sonnet-4",
-            input_tokens_per_1k: 3.0,
-            output_tokens_per_1k: 15.0,
+            input_tokens_per_1k: 0.003,
+            output_tokens_per_1k: 0.015,
+            context_window: 200000,
+            max_output_tokens: 8000,
+            model_tier: "Premium",
+            rate_limits: { rpm: 1000, tpm: 40000, rps: 17 },
+            features: ["multimodal", "function_calling"]
+        },
+                {
+            provider: "Anthropic Claude Sonnet 3.7",
+            model_name: "claude-sonnet-3-7",
+            input_tokens_per_1k: 0.003,
+            output_tokens_per_1k: 0.015,
+            context_window: 200000,
+            max_output_tokens: 8000,
+            model_tier: "Premium",
+            rate_limits: { rpm: 1000, tpm: 40000, rps: 17 },
+            features: ["multimodal", "function_calling"]
+        },
+                {
+            provider: "Anthropic Claude Haiku 3.5",
+            model_name: "claude-haiku-3-5",
+            input_tokens_per_1k: 0.0008,
+            output_tokens_per_1k: 0.004,
             context_window: 200000,
             max_output_tokens: 8000,
             model_tier: "Standard",
@@ -72,19 +246,19 @@ let pricingData = {
         {
             provider: "Google Gemini 2.5 Pro",
             model_name: "gemini-2.5-pro",
-            input_tokens_per_1k: 2.5,
-            output_tokens_per_1k: 15.0,
-            context_window: 1000000,
+            input_tokens_per_1k: 0.00125,
+            output_tokens_per_1k: 0.10,
+            context_window: 2000000,
             max_output_tokens: 65000,
             model_tier: "Premium",
             rate_limits: { rpm: 2000, tpm: 32000, rps: 33 },
             features: ["multimodal", "reasoning", "function_calling"]
         },
         {
-            provider: "Google Gemini 2.0 Flash",
-            model_name: "gemini-2.0-flash",
-            input_tokens_per_1k: 0.1,
-            output_tokens_per_1k: 0.4,
+            provider: "Google Gemini 2.5 Flash",
+            model_name: "gemini-2.5-flash",
+            input_tokens_per_1k: 0.0003,
+            output_tokens_per_1k: 0.001,
             context_window: 1000000,
             max_output_tokens: 8000,
             model_tier: "Budget",
@@ -92,21 +266,32 @@ let pricingData = {
             features: ["multimodal", "function_calling"]
         },
         {
-            provider: "DeepSeek V3",
-            model_name: "deepseek-v3",
-            input_tokens_per_1k: 0.27,
-            output_tokens_per_1k: 1.1,
-            context_window: 64000,
+            provider: "OpenAI OSS 20B",
+            model_name: "gpt-oss-20b",
+            input_tokens_per_1k: 0.00007,
+            output_tokens_per_1k: 0.0003,
+            context_window: 128000,
             max_output_tokens: 8000,
-            model_tier: "Budget",
+            model_tier: "Open Source",
+            rate_limits: { rpm: 60, tpm: 200000, rps: 1 },
+            features: ["reasoning", "function_calling"]
+        },
+                {
+            provider: "OpenAI OSS 120B",
+            model_name: "gpt-oss-120b",
+            input_tokens_per_1k: 0.00015,
+            output_tokens_per_1k: 0.0006,
+            context_window: 128000,
+            max_output_tokens: 8000,
+            model_tier: "Open Source",
             rate_limits: { rpm: 60, tpm: 200000, rps: 1 },
             features: ["reasoning", "function_calling"]
         },
         {
             provider: "Meta Llama 70B (via API)",
             model_name: "llama-3.3-70b",
-            input_tokens_per_1k: 0.71,
-            output_tokens_per_1k: 0.71,
+            input_tokens_per_1k: 0.00072,
+            output_tokens_per_1k: 0.00072,
             context_window: 200000,
             max_output_tokens: 8000,
             model_tier: "Open Source",
@@ -115,6 +300,68 @@ let pricingData = {
         }
     ],
     detailedDevelopmentPhases: [
+        {
+            phase: "LLM/SLM Selection & Integration",
+            category: "AI Model Selection",
+            base_cost_min: 10000,
+            base_cost_max: 80000,
+            complexity_multipliers: { simple: 1.0, medium: 1.7, complex: 2.8 },
+            duration_weeks: { simple: 2, medium: 4, complex: 8 },
+            activities: [
+                { name: "Model Evaluation & Benchmarking", cost_min: 3000, cost_max: 20000 },
+                { name: "API Integration", cost_min: 4000, cost_max: 20000 },
+                { name: "Fine-tuning/Customization", cost_min: 5000, cost_max: 30000 },
+                { name: "Model Hosting Setup", cost_min: 3000, cost_max: 10000 }
+            ],
+            team_roles: ["AI Engineer", "ML Engineer", "DevOps Engineer"],
+            deliverables: ["Integrated Model", "Evaluation Report", "API Documentation"]
+        },
+        {
+            phase: "Prompt Engineering & Optimization",
+            category: "AI Application Design",
+            base_cost_min: 7000,
+            base_cost_max: 40000,
+            complexity_multipliers: { simple: 1.0, medium: 1.5, complex: 2.2 },
+            duration_weeks: { simple: 1, medium: 2, complex: 4 },
+            activities: [
+                { name: "Prompt Design", cost_min: 2000, cost_max: 10000 },
+                { name: "Prompt Testing & Iteration", cost_min: 2000, cost_max: 12000 },
+                { name: "Prompt Optimization", cost_min: 3000, cost_max: 18000 }
+            ],
+            team_roles: ["Prompt Engineer", "AI Engineer", "Product Manager"],
+            deliverables: ["Prompt Library", "Prompt Test Results"]
+        },
+        {
+            phase: "Guardrails & Safety Implementation",
+            category: "AI Safety",
+            base_cost_min: 8000,
+            base_cost_max: 50000,
+            complexity_multipliers: { simple: 1.0, medium: 1.6, complex: 2.5 },
+            duration_weeks: { simple: 1, medium: 3, complex: 6 },
+            activities: [
+                { name: "Content Filtering", cost_min: 2000, cost_max: 12000 },
+                { name: "Toxicity/Abuse Detection", cost_min: 3000, cost_max: 15000 },
+                { name: "Policy Enforcement", cost_min: 2000, cost_max: 10000 },
+                { name: "Red Teaming & Adversarial Testing", cost_min: 3000, cost_max: 13000 }
+            ],
+            team_roles: ["AI Safety Engineer", "QA Engineer", "Compliance Officer"],
+            deliverables: ["Safety Report", "Guardrail Modules"]
+        },
+        {
+            phase: "Evaluation & Alignment",
+            category: "AI Evaluation",
+            base_cost_min: 9000,
+            base_cost_max: 60000,
+            complexity_multipliers: { simple: 1.0, medium: 1.7, complex: 2.7 },
+            duration_weeks: { simple: 2, medium: 4, complex: 8 },
+            activities: [
+                { name: "Human-in-the-Loop Evaluation", cost_min: 3000, cost_max: 20000 },
+                { name: "Alignment Testing", cost_min: 4000, cost_max: 18000 },
+                { name: "Bias & Fairness Audits", cost_min: 2000, cost_max: 12000 }
+            ],
+            team_roles: ["AI Researcher", "Ethics Specialist", "QA Engineer"],
+            deliverables: ["Evaluation Results", "Alignment Report"]
+        },
         {
             phase: "Problem Definition & Requirements Analysis",
             category: "Planning",
@@ -423,6 +670,60 @@ function switchTab(tabName) {
 }
 
 // LLM Configuration Functions (keeping all enhanced functionality)
+/* function populateProvidersList() {
+    const container = document.getElementById('provider-list-container');
+    if (!container) return;
+    
+    container.innerHTML = '';
+    
+    pricingData.cloudLLMProviders.forEach((provider, index) => {
+        const card = document.createElement('div');
+        card.className = 'provider-card';
+        card.innerHTML = `
+            <div class="provider-header" style="position: relative; min-height: 36px;">
+                <div style="position: absolute; top: 0; right: 0; display: flex; gap: 8px;">
+                    <button class="btn btn-edit" title="Edit Provider" style="padding: 2px 10px; font-size: 0.95em;" onclick="editProvider(${index})">Edit</button>
+                    <button class="btn btn-delete" title="Delete Provider" style="padding: 2px 10px; font-size: 0.95em;" onclick="deleteProvider(${index})">Delete</button>
+                </div>
+                <h4 style="margin: 0 0 2px 0; font-size: 1.15em;">${provider.provider}</h4>
+                <div class="model-name" style="font-size: 0.97em; color: #6c757d; margin-bottom: 8px;">${provider.model_name}</div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; row-gap: 4px; column-gap: 24px; margin-bottom: 0;">
+                    <div>
+                        <span class="detail-label">Input Price:</span>
+                        <span class="detail-value">$${provider.input_tokens_per_1k}/1K</span>
+                    </div>
+                    <div>
+                        <span class="detail-label">Output Price:</span>
+                        <span class="detail-value">$${provider.output_tokens_per_1k}/1K</span>
+                    </div>
+                    <div>
+                        <span class="detail-label">Context Window:</span>
+                        <span class="detail-value">${provider.context_window.toLocaleString()}</span>
+                    </div>
+                    <div>
+                        <span class="detail-label">Model Tier:</span>
+                        <span class="detail-value">${provider.model_tier}</span>
+                    </div>
+                    <div>
+                        <span class="detail-label">RPM Limit:</span>
+                        <span class="detail-value">${provider.rate_limits.rpm.toLocaleString()}</span>
+                    </div>
+                    <div>
+                        <span class="detail-label">TPM Limit:</span>
+                        <span class="detail-value">${provider.rate_limits.tpm.toLocaleString()}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="provider-features" style="margin-top: 14px;">
+                <div class="features-list" style="display: flex; flex-wrap: wrap; gap: 6px;">
+                    ${provider.features.map(feature => `<span class="feature-tag">${feature.replace('_', ' ')}</span>`).join('')}
+                </div>
+            </div>
+        `;
+        container.appendChild(card);
+    });
+} */
+
 function populateProvidersList() {
     const container = document.getElementById('provider-list-container');
     if (!container) return;
@@ -478,7 +779,6 @@ function populateProvidersList() {
         container.appendChild(card);
     });
 }
-
 function addNewProvider() {
     editingProvider = -1;
     const modalTitle = document.getElementById('modal-title');
@@ -579,7 +879,6 @@ function saveProvider(event) {
     } else {
         pricingData.cloudLLMProviders.push(providerData);
     }
-    
     populateProvidersList();
     populateUsageProviders();
     closeProviderModal();
@@ -613,6 +912,7 @@ function importConfig() {
     };
     input.click();
 }
+
 
 function exportConfig() {
     const config = {
@@ -930,17 +1230,60 @@ function updateUsageChart(provider, dailyCost) {
 
 // Development Planner Functions (keeping all enhanced functionality)
 function setupDevelopmentPlanner() {
+    populateProjectTypeSelector();
     populateDevelopmentPhases();
     setupProjectInputs();
+
+    // Set default project type if not set
+    if (!window.selectedProjectTypeKey) {
+        window.selectedProjectTypeKey = pricingData.projectTypes[0].key;
+    }
+}
+
+// Populate the project type selector dropdown
+function populateProjectTypeSelector() {
+    let selector = document.getElementById('project-type');
+    if (!selector) return;
+    selector.innerHTML = '';
+    pricingData.projectTypes.forEach(pt => {
+        const option = document.createElement('option');
+        option.value = pt.key;
+        option.textContent = pt.name;
+        selector.appendChild(option);
+    });
+    // Set event listener
+    selector.addEventListener('change', function() {
+        window.selectedProjectTypeKey = selector.value;
+        populateDevelopmentPhases();
+        updateProjectCosts();
+    });
+    // Set default
+    selector.value = window.selectedProjectTypeKey || pricingData.projectTypes[0].key;
 }
 
 function populateDevelopmentPhases() {
     const container = document.getElementById('phases-container');
     if (!container) return;
-    
     container.innerHTML = '';
-    
-    pricingData.detailedDevelopmentPhases.forEach((phase, index) => {
+
+    // Filter phases based on selected project type
+    const selectedTypeKey = window.selectedProjectTypeKey || (pricingData.projectTypes && pricingData.projectTypes[0].key);
+    let relevantPhaseNames = null;
+    if (selectedTypeKey) {
+        const typeObj = pricingData.projectTypes.find(pt => pt.key === selectedTypeKey);
+        if (typeObj) relevantPhaseNames = typeObj.relevantPhases;
+    }
+
+    // Only show relevant phases if project type is selected
+    let filteredPhases = pricingData.detailedDevelopmentPhases;
+    if (relevantPhaseNames && Array.isArray(relevantPhaseNames)) {
+        // Order phases according to relevantPhaseNames
+        filteredPhases = relevantPhaseNames
+            .map(phaseName => pricingData.detailedDevelopmentPhases.find(phase => phase.phase === phaseName))
+            .filter(Boolean);
+    }
+
+    filteredPhases.forEach((phase, index) => {
         const phaseCard = document.createElement('div');
         phaseCard.className = 'phase-card';
         phaseCard.innerHTML = `
@@ -948,7 +1291,7 @@ function populateDevelopmentPhases() {
                 <input type="checkbox" id="phase-${index}" checked onchange="updateProjectCosts()" onclick="event.stopPropagation()">
                 <div class="phase-title">${phase.phase}</div>
                 <div class="phase-cost">$${phase.base_cost_min.toLocaleString()}-$${phase.base_cost_max.toLocaleString()}</div>
-                <div class="phase-duration">${phase.duration_weeks.medium}w</div>
+                <div class="phase-duration">${typeof phase.duration_weeks.medium === 'number' ? `${phase.duration_weeks.medium}w` : (phase.duration_weeks.ongoing || 'Continuous')}</div>
                 <div class="expand-icon">▼</div>
             </div>
             <div class="phase-details">
@@ -1023,13 +1366,18 @@ function updateProjectCosts() {
             const multiplier = phase.complexity_multipliers[complexity];
             const adjustedMin = phase.base_cost_min * multiplier * teamMultiplier;
             const adjustedMax = phase.base_cost_max * multiplier * teamMultiplier;
-            
+
             totalMinCost += adjustedMin;
             totalMaxCost += adjustedMax;
-            totalDurationWeeks += phase.duration_weeks[complexity];
-            
+
+            // Only add to totalDurationWeeks if the duration is a valid number
+            const phaseDuration = phase.duration_weeks[complexity];
+            if (typeof phaseDuration === 'number' && !isNaN(phaseDuration)) {
+                totalDurationWeeks += phaseDuration;
+            }
+
             phase.team_roles.forEach(role => teamRoles.add(role));
-            
+
             // Add activity costs
             phase.activities.forEach((activity, actIndex) => {
                 const activityCheckbox = document.getElementById(`activity-${index}-${actIndex}`);
@@ -1112,16 +1460,73 @@ function updateProjectChart(minCost, maxCost, selectedPhases) {
         window.projectChart.destroy();
     }
     
-    const phaseNames = pricingData.detailedDevelopmentPhases.slice(0, selectedPhases).map(p => p.phase.split(' ')[0]);
-    const phaseCosts = pricingData.detailedDevelopmentPhases.slice(0, selectedPhases).map(p => (p.base_cost_min + p.base_cost_max) / 2);
-    
+    // Old logic (commented out):
+    // const checkedPhases = pricingData.detailedDevelopmentPhases.filter((_, idx) => {
+    //     const phaseCheckbox = document.getElementById(`phase-${idx}`);
+    //     return phaseCheckbox && phaseCheckbox.checked;
+    // });
+    // const phaseNames = checkedPhases.map(p => p.phase);
+    // const phaseCosts = checkedPhases.map(p => (p.base_cost_min + p.base_cost_max) / 2);
+
+    // New logic: Use relevant phases for selected project type, in correct order, and only those checked
+    const selectedTypeKey = window.selectedProjectTypeKey || (pricingData.projectTypes && pricingData.projectTypes[0].key);
+    let relevantPhaseNames = null;
+    if (selectedTypeKey) {
+        const typeObj = pricingData.projectTypes.find(pt => pt.key === selectedTypeKey);
+        if (typeObj) relevantPhaseNames = typeObj.relevantPhases;
+    }
+    let filteredPhases = pricingData.detailedDevelopmentPhases;
+    if (relevantPhaseNames && Array.isArray(relevantPhaseNames)) {
+        filteredPhases = relevantPhaseNames
+            .map(phaseName => pricingData.detailedDevelopmentPhases.find(phase => phase.phase === phaseName))
+            .filter(Boolean);
+    }
+    /*
+    // Only include checked phases
+    const checkedPhases = filteredPhases.filter((phase, idx) => {
+        // Find the index in detailedDevelopmentPhases to match the checkbox id
+        const phaseIndex = pricingData.detailedDevelopmentPhases.findIndex(p => p.phase === phase.phase);
+        const phaseCheckbox = document.getElementById(`phase-${phaseIndex}`);
+        return phaseCheckbox && phaseCheckbox.checked;
+    });*/
+    // Only include checked phases (use index from filteredPhases, not detailedDevelopmentPhases)
+    const checkedPhases = filteredPhases.filter((phase, idx) => {
+    const phaseCheckbox = document.getElementById(`phase-${idx}`);
+    return phaseCheckbox && phaseCheckbox.checked;
+    });
+    const phaseNames = checkedPhases.map(p => p.phase);
+    const phaseCosts = checkedPhases.map(p => (p.base_cost_min + p.base_cost_max) / 2);
+
+    // Use a more distinct color palette for each phase
+    const distinctColors = [
+        '#1FB8CD', // cyan
+        '#FF6F61', // red-orange
+        '#6B5B95', // purple
+        '#88B04B', // green
+        '#F7CAC9', // pink
+        '#92A8D1', // blue
+        '#955251', // brown
+        '#B565A7', // violet
+        '#009B77', // teal
+        '#DD4124', // orange-red
+        '#D65076', // magenta
+        '#45B8AC', // turquoise
+        '#EFC050', // yellow
+        '#5B5EA6', // indigo
+        '#9B2335', // deep red
+        '#DFCFBE', // beige
+        '#55B4B0', // aqua
+        '#E15D44', // orange
+        '#7FCDCD', // light teal
+        '#BC243C'  // crimson
+    ];
     window.projectChart = new Chart(ctx, {
         type: 'doughnut',
         data: {
             labels: phaseNames,
             datasets: [{
                 data: phaseCosts,
-                backgroundColor: ['#1FB8CD', '#FFC185', '#B4413C', '#ECEBD5', '#5D878F']
+                backgroundColor: phaseNames.map((_, i) => distinctColors[i % distinctColors.length])
             }]
         },
         options: {
@@ -1131,6 +1536,14 @@ function updateProjectChart(minCost, maxCost, selectedPhases) {
                 title: {
                     display: true,
                     text: 'Cost Distribution by Phase'
+                },
+                legend: {
+                    display: true,
+                    labels: {
+                        boxWidth: 20,
+                        font: { size: 12 },
+                        padding: 16,
+                    }
                 }
             }
         }
@@ -1285,6 +1698,8 @@ function setupPricingStrategy() {
     const revenueInputs = ['expected-customers', 'price-per-customer', 'usage-units', 'price-per-unit'];
     revenueInputs.forEach(id => {
         const element = document.getElementById(id);
+       
+
         if (element) {
             element.addEventListener('input', calculateSimpleRevenue);
         }
@@ -1306,52 +1721,80 @@ function handlePricingModelSelection() {
     }
     
     const model = pricingData.simplePricingModels[selectedIndex];
-    
     detailsDiv.innerHTML = `
         <h4>${model.model}</h4>
         <p><strong>Description:</strong> ${model.description}</p>
         <p><strong>Best for:</strong> ${model.useCase}</p>
         <p><strong>Cost Predictability:</strong> ${model.costPredictability}</p>
-        
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 16px;">
-            <div>
-                <strong>Pros:</strong>
-                <ul style="margin: 8px 0; padding-left: 20px;">
-                    ${model.pros.map(pro => `<li>${pro}</li>`).join('')}
-                </ul>
-            </div>
-            <div>
-                <strong>Cons:</strong>
-                <ul style="margin: 8px 0; padding-left: 20px;">
-                    ${model.cons.map(con => `<li>${con}</li>`).join('')}
-                </ul>
-            </div>
-        </div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 16px;"></div>
     `;
-    
-    calculateSimpleRevenue();
 }
-
 function calculateSimpleRevenue() {
     const customers = parseFloat(document.getElementById('expected-customers')?.value) || 0;
     const pricePerCustomer = parseFloat(document.getElementById('price-per-customer')?.value) || 0;
     const usageUnits = parseFloat(document.getElementById('usage-units')?.value) || 0;
     const pricePerUnit = parseFloat(document.getElementById('price-per-unit')?.value) || 0;
-    
+
     const baseRevenue = customers * pricePerCustomer;
     const usageRevenue = customers * usageUnits * pricePerUnit;
     const totalMonthlyRevenue = baseRevenue + usageRevenue;
     const annualRevenue = totalMonthlyRevenue * 12;
     const revenuePerCustomer = customers > 0 ? totalMonthlyRevenue / customers : 0;
-    
+
     // Update display
     const monthlyEl = document.getElementById('monthly-revenue');
     const annualEl = document.getElementById('annual-revenue');
     const perCustomerEl = document.getElementById('revenue-per-customer');
-    
-    if (monthlyEl) monthlyEl.textContent = `$${totalMonthlyRevenue.toFixed(2)}`;
-    if (annualEl) annualEl.textContent = `$${annualRevenue.toFixed(2)}`;
-    if (perCustomerEl) perCustomerEl.textContent = `$${revenuePerCustomer.toFixed(2)}`;
+    let stepsEl = document.getElementById('revenue-calculation-steps');
+
+    if (monthlyEl) { monthlyEl.textContent = `$${totalMonthlyRevenue.toFixed(2)}`; }
+    if (annualEl) { annualEl.textContent = `$${annualRevenue.toFixed(2)}`; }
+    if (perCustomerEl) { perCustomerEl.textContent = `$${revenuePerCustomer.toFixed(2)}`; }
+
+    // Ensure the steps container exists in the DOM
+    if (!stepsEl) {
+        // Try to insert after annual revenue or monthly revenue
+        const annualParent = annualEl?.parentElement;
+        if (annualParent) {
+            stepsEl = document.createElement('div');
+            stepsEl.id = 'revenue-calculation-steps';
+            stepsEl.style.marginTop = '16px';
+            annualParent.parentElement?.appendChild(stepsEl);
+        }
+    }
+
+    // Add expandable calculation steps
+    if (stepsEl) {
+        stepsEl.innerHTML = `
+            <button id="toggle-steps-btn" class="btn btn-secondary" style="margin-bottom:8px;">Show Calculation Steps ▼</button>
+            <div id="steps-content" style="display:none; border:1px solid #e0e0e0; border-radius:6px; padding:12px; background:#fafbfc; margin-bottom:8px;">
+                <strong>Step 1:</strong> Base Revenue = Customers × Price per Customer<br>
+                <span style="margin-left:16px;">${customers} × $${pricePerCustomer} = <b>$${baseRevenue.toFixed(2)}</b></span><br><br>
+                <strong>Step 2:</strong> Usage Revenue = Customers × Usage Units per Customer × Price per Unit<br>
+                <span style="margin-left:16px;">${customers} × ${usageUnits} × $${pricePerUnit} = <b>$${usageRevenue.toFixed(2)}</b></span><br><br>
+                <strong>Step 3:</strong> Total Monthly Revenue = Base Revenue + Usage Revenue<br>
+                <span style="margin-left:16px;">$${baseRevenue.toFixed(2)} + $${usageRevenue.toFixed(2)} = <b>$${totalMonthlyRevenue.toFixed(2)}</b></span><br><br>
+                <strong>Step 4:</strong> Annual Revenue = Total Monthly Revenue × 12<br>
+                <span style="margin-left:16px;">$${totalMonthlyRevenue.toFixed(2)} × 12 = <b>$${annualRevenue.toFixed(2)}</b></span><br><br>
+                <strong>Step 5:</strong> Revenue per Customer = Total Monthly Revenue ÷ Customers<br>
+                <span style="margin-left:16px;">$${totalMonthlyRevenue.toFixed(2)} ÷ ${customers} = <b>$${revenuePerCustomer.toFixed(2)}</b></span>
+            </div>
+        `;
+        // Add toggle logic
+        const btn = document.getElementById('toggle-steps-btn');
+        const content = document.getElementById('steps-content');
+        if (btn && content) {
+            btn.onclick = function() {
+                if (content.style.display === 'none') {
+                    content.style.display = 'block';
+                    btn.textContent = 'Hide Calculation Steps ▲';
+                } else {
+                    content.style.display = 'none';
+                    btn.textContent = 'Show Calculation Steps ▼';
+                }
+            };
+        }
+    }
 }
 
 // Simple ROI Calculator Functions (REVERTED TO SIMPLE)
@@ -1393,8 +1836,8 @@ function calculateSimpleROI() {
             breakEvenEl.textContent = monthlyProfit <= 0 ? '∞' : '0';
         }
     }
-    if (roiEl) roiEl.textContent = `${threeYearROI.toFixed(1)}%`;
-    if (profitEl) profitEl.textContent = `$${monthlyProfit.toFixed(0)}`;
+    if (profitEl) { profitEl.textContent = `$${monthlyProfit.toFixed(0)}`; }
+    if (roiEl) { roiEl.textContent = `${threeYearROI.toFixed(1)}%`; }
     
     // Calculate business impact
     updateBusinessImpactAnalysis(efficiencyGain, marketAdvantage, riskLevel, monthlyProfit);
@@ -1421,21 +1864,21 @@ function updateBusinessImpactAnalysis(efficiencyGain, marketAdvantage, riskLevel
                              adjustedImpact > 25 ? 'Consider with Caution' : 'Not Recommended';
     
     impactResultsDiv.innerHTML = `
-        <div class="cost-item">
-            <span class="cost-label">Business Impact Score:</span>
-            <span class="cost-value">${adjustedImpact.toFixed(0)}/100</span>
+        <div class='cost-item'>
+            <span class='cost-label'>Business Impact Score:</span>
+            <span class='cost-value'>${adjustedImpact.toFixed(0)}/100</span>
         </div>
-        <div class="cost-item">
-            <span class="cost-label">Confidence Level:</span>
-            <span class="cost-value">${confidenceLevel}</span>
+        <div class='cost-item'>
+            <span class='cost-label'>Confidence Level:</span>
+            <span class='cost-value'>${confidenceLevel}</span>
         </div>
-        <div class="cost-item">
-            <span class="cost-label">Recommendation:</span>
-            <span class="cost-value">${recommendationText}</span>
+        <div class='cost-item'>
+            <span class='cost-label'>Recommendation:</span>
+            <span class='cost-value'>${recommendationText}</span>
         </div>
-        <div class="cost-item">
-            <span class="cost-label">Expected Efficiency Gain:</span>
-            <span class="cost-value">${efficiencyGain}%</span>
+        <div class='cost-item'>
+            <span class='cost-label'>Expected Efficiency Gain:</span>
+            <span class='cost-value'>${efficiencyGain}%</span>
         </div>
     `;
 }
@@ -1494,7 +1937,7 @@ document.addEventListener('DOMContentLoaded', function() {
     window.editProvider = editProvider;
     window.deleteProvider = deleteProvider;
     window.closeProviderModal = closeProviderModal;
-    window.importConfig = importConfig;
+    // window.importConfig = importConfig; // Removed: function not defined
     window.exportConfig = exportConfig;
     window.exportResults = exportResults;
     window.shareConfiguration = shareConfiguration;
